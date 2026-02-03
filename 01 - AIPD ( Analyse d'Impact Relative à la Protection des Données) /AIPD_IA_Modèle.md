@@ -23,7 +23,7 @@ ENGLISH VERSION:
 ## 1. TRIGGER ASSESSMENT (WP29 CRITERIA & NATIONAL LISTS)
 [cite_start]*Reference: WP 248 rev.01, Section III.B.a (Pages 8-11)* [cite: 124, 140]
 
-### A. National Jurisdiction Check (Art 35(4) & 35(5))**
+### A. National Jurisdiction Check (Art 35(4) & 35(5))
 *Before assessing criteria, check specific national requirements.*
 * [cite_start][ ] **Blacklist Check:** Is this processing operation on a National DPA "Blacklist" (Art 35(4))? [cite: 197]
   * *If YES, DPIA is **Mandatory** regardless of the criteria below.*
@@ -31,7 +31,7 @@ ENGLISH VERSION:
   * *If YES, DPIA is **Not Required** (unless specific conditions are unmet).*
 * [ ] Checked for Sector-Specific DPIA Frameworks (e.g., Energy, Health)? 
 
-### B. GDPR "High Risk" Determination (Art 35(1))**
+### B. GDPR "High Risk" Determination (Art 35(1))
 [cite_start]*Note: This assessment determines risk to "rights and freedoms" under GDPR.* [cite: 76]
 
 **Applicability Check:** Does the processing meet **any** of the criteria below?
@@ -51,7 +51,7 @@ ENGLISH VERSION:
 | **8. [cite_start]Innovative Use / New Tech** (AI, LLMs, IoT, Facial Recog) [cite: 174] | [x] **Yes (AI System)** |
 | **9. [cite_start]Preventing Rights/Service Access** (e.g., loan refusal) [cite: 184] | [ ] Yes |
 
-### C. Joint Controllership (Art 26)**
+### C. Joint Controllership (Art 26)
 *Are we acting alone or jointly?*
 * [ ] Sole Controller
 * [cite_start][ ] Joint Controller (Roles defined in attached Arrangement) [cite: 112]
@@ -62,12 +62,12 @@ ENGLISH VERSION:
 ## 2. SYSTEMATIC DESCRIPTION & ASSETS
 [cite_start]*Reference: EDPB Annex 2 - "Systematic description... nature, scope, context and purposes... assets... recipients"* [cite: 392, 396]
 
-### A. Functional Description**
+### A. Functional Description
 * **Nature & Scope:** [Describe what the AI does and the scale of deployment].
 * **Context:** [Describe the environment, e.g., "Internal HR tool" or "Public-facing chatbot"].
 * **Purposes:** [Specify the explicit outcome, e.g., "Automating customer triage"].
 
-### B. Asset Inventory (Hardware, Software, People)**
+### B. Asset Inventory (Hardware, Software, People)
 [cite_start]*Required by WP 248 Annex 2: "the assets on which personal data rely"* [cite: 396]
 * **Software Assets (The Model):**
   * Architecture: (e.g., Transformer / LLM, Random Forest).
@@ -80,7 +80,7 @@ ENGLISH VERSION:
 * **Paper Assets:**
   * [ ] N/A (Full Digital) or [ ] Scanned physical documents.
 
-### C. Recipients & Storage Duration**
+### C. Recipients & Storage Duration
 * [cite_start]**Recipients (Who sees the data?):** [cite: 394]
   * [ ] AI Vendor/Processor (e.g., OpenAI, Anthropic)
   * [ ] Cloud Provider (e.g., AWS, Azure, GCP)
@@ -122,7 +122,7 @@ This requirement applies to **all external recipients**, including AI vendors, c
 ## 3. NECESSITY, PROPORTIONALITY & RIGHTS
 [cite_start]*Reference: EDPB Annex 2 - "Necessity and proportionality... measures contributing to rights"* [cite: 398, 404]
 
-### A. Lawfulness of Processing (Art. 6)**
+### A. Lawfulness of Processing (Art. 6)
 * **Phase 1: Training (If applicable):** 
 [ ] Consent [ ] Legitimate Interest [ ] Contract [ ] N/A
 * **Phase 2: Inference (Usage):**
@@ -160,7 +160,7 @@ This requirement applies to **all external recipients**, including AI vendors, c
 
 *Note:* Where prompts or outputs are reused for training, this processing must be reflected in the legal basis (Art. 6 GDPR) and, where applicable, in Art. 9 / Art. 10 conditions.
 
-### B. Proportionality Assessment (Why AI?)**
+### B. Proportionality Assessment (Why AI?)
 * **Necessity:** Could the objective be achieved without AI (e.g., rules-based software)?
     * [ ] No. (Justification: Complexity of language/pattern matching requires AI inference).
     * [ ] Yes. (If yes, using High-Risk AI may be disproportionate).
@@ -168,14 +168,14 @@ This requirement applies to **all external recipients**, including AI vendors, c
     * [ ] We only process inputs strictly necessary for the prompt.
     * [ ] Context window history is limited to [X] turns.
 
-### C. Codes of Conduct & Certifications (Art 40/42)**
+### C. Codes of Conduct & Certifications (Art 40/42)
 [cite_start]*Reference: WP 248 Page 16 - "Compliance with a code of conduct... Certifications, seals and marks... should be taken into account"* [cite: 284, 286]
 * **Applicability:**
     * [ ] No current approved codes.
     * [ ] Adherence to approved Code of Conduct (Name: ____________________).
     * [ ] Adherence to approved Certification Mechanism (Name: ____________________).
 
-### D. Data Subject Rights Checklist**
+### D. Data Subject Rights Checklist
 [cite_start]*Reference: WP 248 Annex 2 - Measures contributing to the rights of data subjects* [cite: 404]
 
 | Right | Measure Implemented in AI System |
@@ -186,7 +186,7 @@ This requirement applies to **all external recipients**, including AI vendors, c
 | [cite_start]**Object & Restriction (Art 18/21)** [cite: 408] | [ ] Opt-out available for future training. [ ] Stop generation button. |
 | **Automated Decision Review (Art 22)** | [ ] Human-in-the-loop available for contesting decisions. |
 
-### E. International Transfers (Chapter V)**
+### E. International Transfers (Chapter V)
 * [cite_start]**Does data leave the EEA?** [cite: 409]
   * [ ] No (Data residency pinned to EU Region).
   * [ ] Yes (Transfer to US/Third Country).
@@ -382,7 +382,7 @@ FRENCH VERSION :
 ## 1. ÉVALUATION DU DÉCLENCHEMENT (CRITÈRES WP29 & LISTES NATIONALES)
 [cite_start]*Référence : WP 248 rev.01, Section III.B.a (pages 8–11)* [cite: 124, 140]
 
-### A. Vérification de la juridiction nationale (art. 35(4) & 35(5) RGPD)**  
+### A. Vérification de la juridiction nationale (art. 35(4) & 35(5) RGPD)
 *Avant d’évaluer les critères, vérifier les exigences nationales spécifiques.*  
 * [cite_start][ ] **Vérification “Blacklist” :** Cette opération figure-t-elle sur une **liste nationale** publiée par une autorité de contrôle rendant l’AIPD obligatoire (art. 35(4)) ? [cite: 197]  
   * *Si OUI, l’AIPD est **obligatoire**, indépendamment des critères ci-dessous.*  
@@ -390,7 +390,7 @@ FRENCH VERSION :
   * *Si OUI, l’AIPD **n’est pas requise** (sauf conditions spécifiques non remplies).*  
 * [ ] Référentiels sectoriels AIPD vérifiés (ex. énergie, santé) ?  
 
-### B. Détermination du “risque élevé” au sens du RGPD (art. 35(1))**  
+### B. Détermination du “risque élevé” au sens du RGPD (art. 35(1))  
 [cite_start]*Note : cette évaluation vise les risques pour les “droits et libertés” au sens du RGPD.* [cite: 76]
 
 **Test d’applicabilité :** Le traitement satisfait-il **au moins un** des critères ci-dessous ?  
@@ -411,7 +411,7 @@ FRENCH VERSION :
 | **8. [cite_start]Usage innovant / nouvelle technologie** (IA, LLM, IoT, reconnaissance faciale) [cite: 174] | [x] **Oui (système d’IA)** |
 | **9. [cite_start]Empêchement d’exercice de droits / d’accès à un service** (ex. refus de prêt) [cite: 184] | [ ] Oui |
 
-### C. Responsabilité conjointe (art. 26)**  
+### C. Responsabilité conjointe (art. 26)
 *Agissons-nous seuls ou conjointement ?*  
 * [ ] Responsable du traitement unique  
 * [cite_start][ ] Co-responsables (rôles définis dans un accord joint) [cite: 112]  
@@ -422,12 +422,12 @@ FRENCH VERSION :
 ## 2. DESCRIPTION SYSTÉMATIQUE & ACTIFS
 [cite_start]*Référence : Annexe 2 CEPD – “description systématique… nature, portée, contexte, finalités… actifs… destinataires”* [cite: 392, 396]
 
-### A. Description fonctionnelle**  
+### A. Description fonctionnelle 
 * **Nature & portée :** [Décrire ce que fait l’IA et l’échelle de déploiement].  
 * **Contexte :** [Décrire l’environnement : ex. outil RH interne / chatbot public].  
 * **Finalités :** [Préciser le résultat attendu : ex. automatisation du tri des demandes].  
 
-### B. Inventaire des actifs (matériels, logiciels, humains)**  
+### B. Inventaire des actifs (matériels, logiciels, humains)
 [cite_start]*Exigé par l’Annexe 2 WP 248 : “les actifs sur lesquels reposent les données personnelles”* [cite: 396]  
 * **Actifs logiciels (le modèle) :**  
   * Architecture : (ex. Transformer / LLM, Random Forest).  
@@ -440,7 +440,7 @@ FRENCH VERSION :
 * **Actifs papier :**  
   * [ ] N/A (100% numérique) ou [ ] Documents physiques numérisés.  
 
-### C. Destinataires & durées de conservation**  
+### C. Destinataires & durées de conservation  
 * [cite_start]**Destinataires (qui accède aux données ?) :** [cite: 394]  
   * [ ] Fournisseur IA / sous-traitant (ex. OpenAI, Anthropic)  
   * [ ] Fournisseur cloud (ex. AWS, Azure, GCP)  
@@ -482,7 +482,7 @@ Cette exigence s’applique à **l’ensemble des destinataires externes**, y co
 ## 3. NÉCESSITÉ, PROPORTIONNALITÉ & DROITS
 [cite_start]*Référence : Annexe 2 CEPD – “nécessité et proportionnalité… mesures contribuant aux droits”* [cite: 398, 404]
 
-### A. Licéité du traitement (art. 6)**  
+### A. Licéité du traitement (art. 6)
 * **Phase 1 : Entraînement (si applicable) :** 
 [ ] Consentement [ ] Intérêt légitime [ ] Contrat [ ] N/A  
 * **Phase 2 : Inférence (utilisation) :**  
@@ -520,7 +520,7 @@ Bạn đã nói:
 
 *Remarque :* Toute réutilisation des prompts ou réponses à des fins d’entraînement doit être couverte par une base juridique adéquate (art. 6 RGPD) et, le cas échéant, par les conditions applicables aux art. 9 et/ou 10 RGPD.
 
-### B. Évaluation de proportionnalité (Pourquoi l’IA ?)**
+### B. Évaluation de proportionnalité (Pourquoi l’IA ?)
 * **Nécessité :** l’objectif pourrait-il être atteint sans IA (ex. règles déterministes) ?  
   * [ ] Non (justification : complexité du langage / motifs nécessite inférence).  
   * [ ] Oui (si oui, l’usage d’une IA à haut risque peut être disproportionné).  
@@ -528,14 +528,14 @@ Bạn đã nói:
   * [ ] Seules les entrées strictement nécessaires au prompt sont traitées.  
   * [ ] L’historique de contexte est limité à [X] tours.  
 
-### C. Codes de conduite & certifications (art. 40/42)**  
+### C. Codes de conduite & certifications (art. 40/42)
 [cite_start]*Référence : WP 248 p.16 – “codes de conduite… certifications… à prendre en compte”* [cite: 284, 286]  
 * **Applicabilité :**  
   * [ ] Aucun code approuvé applicable à ce jour.  
   * [ ] Adhésion à un code de conduite approuvé (Nom : ____________________).  
   * [ ] Adhésion à un mécanisme de certification approuvé (Nom : ____________________).  
 
-### D. Checklist des droits des personnes concernées**  
+### D. Checklist des droits des personnes concernées
 [cite_start]*Référence : Annexe 2 WP 248 – mesures contribuant aux droits des personnes concernées* [cite: 404]
 
 | Droit | Mesure mise en œuvre dans le système d’IA |
@@ -546,7 +546,7 @@ Bạn đã nói:
 | [cite_start]**Opposition & limitation (art. 18/21)** [cite: 408] | [ ] Opt-out pour l’entraînement futur. [ ] Bouton d’arrêt de génération. |
 | **Réexamen d’une décision automatisée (art. 22)** | [ ] Intervention humaine pour contester les décisions. |
 
-### E. Transferts internationaux (Chapitre V)**  
+### E. Transferts internationaux (Chapitre V)  
 * [cite_start]**Les données sortent-elles de l’EEE ?** [cite: 409]  
   * [ ] Non (résidence des données en région UE).  
   * [ ] Oui (transfert vers États-Unis / pays tiers).  
