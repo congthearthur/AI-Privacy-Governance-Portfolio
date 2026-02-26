@@ -39,7 +39,7 @@ ENGLISH VERSION:
 **DPO / Compliance Owner:** [Name]  
 **CISO Owner:** [Name]  
 **Date:** YYYY-MM-DD  
-**Version:** 2.1 (WP248 + PDPL Hybrid Dossier — Audit Hardened)  
+**Version:** 2.2 (WP248 + PDPL Hybrid Dossier — Audit Hardened + Final Patches)  
 **Status:** [ ] Draft  [ ] Validation  [ ] Approved  
 **Lifecycle Stage:** [ ] Design (Prior to Processing) [ ] Pilot [ ] Production [ ] Periodic Review  
 **AI Act Classification:** [ ] Prohibited [ ] High Risk [ ] Limited Risk [ ] Minimal Risk  
@@ -50,8 +50,12 @@ ENGLISH VERSION:
 - **First Day of Processing (T0):** YYYY-MM-DD  
 - **PDPL DPIA Dossier Deadline (T0 + 60 days):** YYYY-MM-DD  
 - **Submission Status:** [ ] Not started  [ ] In progress  [ ] Submitted  
+
 - **Competent PDPL Authority / Recipient:** [Name]  
-  - **Determination Rule:** [e.g., based on principal place of business / sector / instruction from Controller]  
+  - **Authority Determination Rule (Concrete):**  
+    Authority is determined per the **Controller’s registered location and sector** (e.g., regulated industry vs general enterprise) and is **recorded in the Tenant Onboarding Checklist** (artifact ID: **EP-11**) for each tenant.  
+  - **Tenant Onboarding Checklist (EP-11):** [link]
+
 - **Submission Method:** [Portal / Email / Physical / Other]  
 - **Submission Evidence:** [Link to receipt / acknowledgement / courier proof]  
 - **Submission Ref No.:** [______]
@@ -68,14 +72,14 @@ ENGLISH VERSION:
 **Update Log (append-only):**
 | Version | Date | Trigger | Summary of Change | Owner | Approver | Evidence Link |
 |---|---|---|---|---|---|---|
-| 2.1 | YYYY-MM-DD | Initial | Initial PDPL Hybrid Dossier | [Owner] | [Approver] | [link] |
+| 2.2 | YYYY-MM-DD | Final patches | Authority rule + residency statement + backup SLA | [Owner] | [Approver] | [link] |
 | __ | __ | __ | __ | __ | __ | __ |
 
 ### 0.3 HYBRID CROSS-BORDER DOSSIER LINK (MANDATORY)
 - **Cross-border Transfer Dossier Annex:** **Annex PDPL-X** (required for HYBRID)  
 - **First Cross-border Transfer Date (T0x):** YYYY-MM-DD  
 - **Cross-border Dossier Deadline (T0x + 60 days):** YYYY-MM-DD  
-- **Cross-border Submission Evidence:** [Link]  
+- **Cross-border Submission Evidence:** [EP-10 link]  
 
 ### 0.4 BREACH CLOCK + 72-HOUR WORKFLOW LINK (MANDATORY)
 > PDPL requires notification within **72 hours from discovery** if harms may occur; incident register required; processor notifies controller promptly.
@@ -88,7 +92,6 @@ ENGLISH VERSION:
 ---
 
 ## 1. TRIGGER ASSESSMENT (GDPR/WP248) + PDPL SCOPE CHECK
-
 ### 1.1 GDPR TRIGGER ASSESSMENT (WP29 CRITERIA & NATIONAL LISTS)
 **Reference:** WP 248 rev.01, Section III.B.a (Pages 8-11)
 
@@ -134,9 +137,13 @@ ENGLISH VERSION:
 ### 2.2 Data Flow Diagram (MANDATORY AUDIT ARTIFACT)
 Attach a one-page diagram showing:  
 **Ingress → VN Storage → Retrieval/RAG → Risk Gate → Redaction → Cross-border Egress → Response → Logging → Retention/Deletion**  
-- **Diagram link:** [____]  
+- **Diagram link:** [EP-01 link]  
 
-### 2.3 Asset Inventory (Hardware, Software, People)
+### 2.3 HYBRID DATA RESIDENCY STATEMENT (AUDIT-FRIENDLY)
+**Hybrid Data Residency Statement:**  
+Primary storage (databases, vector stores, audit logs, and operational logs) is maintained **in Vietnam (VN)**. Only **redacted and minimized context** (bounded by token/chunk caps and field allowlists) may be transmitted to approved external AI sub-processors for inference/reranking under the **Egress Policy Engine**. For **RISK-HIGH** requests, **cross-border egress is blocked** and processing must be **VN_ONLY** (or the request is blocked), unless an explicitly approved override exists under §6.3 with full logging and monitoring.
+
+### 2.4 Asset Inventory (Hardware, Software, People)
 **Software Assets**
 - Model(s): [LLM name/version], reranker(s): [vendor], embeddings: [model]  
 - Orchestration: [LangGraph / toolchain]  
@@ -156,7 +163,7 @@ Attach a one-page diagram showing:
 - [x] None (fully digital)  
 - [ ] Scanned documents (describe): ______________________  
 
-### 2.4 Data Categories + Classification (MANDATORY FOR PDPL RISK GATE)
+### 2.5 Data Categories + Classification (MANDATORY FOR PDPL RISK GATE)
 - **Basic personal data:** [e.g., name, email, phone, ID no.]  
 - **Sensitive personal data:** [e.g., biometrics, location, health, political, financial]  
 - **Special categories (GDPR Art 9):** [Yes/No]  
@@ -169,7 +176,6 @@ Attach a one-page diagram showing:
 ---
 
 ## 3. LAWFUL BASIS, NECESSITY, PROPORTIONALITY + PDPL CONSENT MODEL
-
 ### 3.1 GDPR Lawfulness (Art 6 / Art 9 / Art 10)
 - **Phase 1 (Training, if applicable):** [ ] Consent [ ] Legitimate Interest [ ] Contract [ ] N/A  
 - **Phase 2 (Inference/Usage):** [ ] Consent [ ] Contract [ ] Public Task [ ] Legitimate Interest  
@@ -191,8 +197,6 @@ Criminal data authorising law + safeguards (Art 10 + national law): ____________
 - [ ] Consent record stored with: `subject_id`, `purposes`, `timestamp`, `policy_version`, `method`, `evidence_pointer`.
 
 #### B. Consent Evidence Format (MANDATORY, AUDIT-PROOF)
-**Consent evidence must be reproducible and exportable.** Minimum fields:
-
 | Field | Description |
 |---|---|
 | consent_event_id | Unique immutable ID |
@@ -234,7 +238,6 @@ Could the objective be achieved without AI?
 ---
 
 ## 4. RECIPIENTS, SUB-PROCESSORS, RETENTION + HYBRID EGRESS REGISTER
-
 ### 4.1 Roles & Qualification (GDPR)
 - [ ] Controller  
 - [ ] Joint Controller (Art 26, arrangement attached)  
@@ -255,11 +258,17 @@ No pilot/production until every external recipient is completed and approved:
 - Prompts: [retention days, redaction]  
 - Outputs: [retention days]  
 - Logs/audit: [retention days; tamper resistance]  
-- Backups: [retention + deletion propagation policy]
+- Backups: [retention + deletion propagation SLA below]
 
-### 4.4 Deletion/Destruction Completeness Checklist (MANDATORY)
-> Auditors will test completeness: deletion must include **raw + derived** data.
+### 4.4 Backup Deletion Propagation SLA (MANDATORY NUMBERS)
+> Auditors will ask: “If you delete today, when are backups purged?”
 
+- **Backup rotation/purge window:** Backups are rotated and purged within **[X] days**.  
+- **Deletion request honor window (including derived artifacts):** Deletion requests are honored within **[Y] days** end-to-end, including propagation to backups per the purge window.  
+- **Evidence:** backup policy config + run logs (EP-07) + backup retention configuration (EP-12).  
+- **EP-12 Backup Policy Artifact:** [link]
+
+### 4.5 Deletion/Destruction Completeness Checklist (MANDATORY)
 When deletion/destruction is requested, confirm:
 
 - [ ] Raw documents deleted  
@@ -268,12 +277,12 @@ When deletion/destruction is requested, confirm:
 - [ ] Citations store entries removed (where applicable)  
 - [ ] Conversation messages removed (subject to retention policy)  
 - [ ] Search indexes updated to remove artifacts  
-- [ ] Backup deletion propagation policy executed (document timeframe)  
+- [ ] Backup deletion propagation SLA satisfied (§4.4)  
 - [ ] Non-restoration assured (cryptographic erasure / secure wipe)  
 
 **Deletion Evidence:** link to job logs + sample execution trace: [EP-07 link]
 
-### 4.5 HYBRID DATA EGRESS REGISTER (MANDATORY)
+### 4.6 HYBRID DATA EGRESS REGISTER (MANDATORY)
 Every external AI call must create an immutable egress log entry.
 
 **Egress log fields**
@@ -297,7 +306,6 @@ Every external AI call must create an immutable egress log entry.
 ---
 
 ## 5. DATA SUBJECT RIGHTS (GDPR) + PDPL RIGHTS EXECUTION (OPERATIONAL)
-
 ### 5.1 Rights Checklist (GDPR)
 | Right | Measures Implemented |
 |---|---|
@@ -316,7 +324,7 @@ Every external AI call must create an immutable egress log entry.
 **Execution Controls**
 - Withdrawal/restriction: processing freeze + block embedding/retrieval/egress.  
 - Correction: update data at source + propagate to derived stores.  
-- Deletion/destruction: execute §4.4 checklist and record evidence.
+- Deletion/destruction: execute §4.5 checklist and record evidence.
 
 **Evidence**
 - DSR register: `dsr_requests` with timestamps, actions, closure proof (EP-05)
@@ -324,7 +332,6 @@ Every external AI call must create an immutable egress log entry.
 ---
 
 ## 6. PDPL AI RISK CLASSIFICATION GATE (MANDATORY FOR HYBRID)
-
 ### 6.1 Risk Tiering Model (ENFORCEMENT)
 - **RISK-LOW:** no identifiers; general legal analysis → HYBRID allowed  
 - **RISK-MED:** identifiers present → HYBRID only with redaction; else VN-only  
@@ -348,7 +355,6 @@ Every external AI call must create an immutable egress log entry.
 ---
 
 ## 7. RISK ASSESSMENT (EDPB TAXONOMY) + HYBRID-SPECIFIC SCENARIOS
-
 ### 7.1 Risk Register
 | Risk ID | Source | Scenario | Impact Type | Severity | Likelihood | Risk Level |
 |---|---|---|---|---|---|---|
@@ -363,7 +369,6 @@ Every external AI call must create an immutable egress log entry.
 ---
 
 ## 8. MEASURES TO TREAT RISKS (SECURITY + FUNDAMENTAL RIGHTS) + PDPL EVIDENCE
-
 ### 8.1 Security & Integrity Measures
 | Risks | Measures | Residual Risk | Approved |
 |---|---|---|---|
@@ -386,7 +391,6 @@ Every external AI call must create an immutable egress log entry.
 ---
 
 ## 9. MONITORING, REVIEW, AUDIT + PDPL UPDATE CADENCE (HYBRID)
-
 ### 9.1 Re-assessment Triggers
 - Model drift below threshold  
 - New capabilities (plugins, browsing, new tools, new data categories)  
@@ -408,7 +412,8 @@ Every external AI call must create an immutable egress log entry.
 - [ ] Risk gate enforced + override logs reviewed (EP-06)  
 - [ ] DSR execution tested (withdraw/restrict/delete) (EP-05)  
 - [ ] Incident workflow tested (tabletop) (EP-08)  
-- [ ] Vendor proof pack complete (no-train/retention) (EP-09)
+- [ ] Vendor proof pack complete (no-train/retention) (EP-09)  
+- [ ] Backup policy evidence attached (EP-12)  
 
 ---
 
@@ -435,7 +440,6 @@ Every external AI call must create an immutable egress log entry.
 ---
 
 # ANNEX PDPL-X — CROSS-BORDER TRANSFER IMPACT ASSESSMENT DOSSIER (HYBRID)
-
 ## X.1 Scope
 This annex documents cross-border transfers arising from HYBRID processing (foreign LLM/reranker endpoints, foreign logging/monitoring, foreign support access).
 
@@ -472,7 +476,6 @@ Updates required per §0.2 triggers and §9.1.
 ---
 
 # ANNEX PDPL-Y — INCIDENT REGISTER + 72-HOUR NOTIFICATION PACK
-
 ## Y.1 Incident Timestamps
 - Discovery time (T0i): ______  
 - 72-hour deadline (T0i + 72h): ______  
@@ -480,8 +483,6 @@ Updates required per §0.2 triggers and §9.1.
 - Initial containment time: ______  
 
 ## Y.2 “Harm May Occur” Triage Rule (MANDATORY)
-Notification is triggered when the violation **may cause harm**. Use the rubric below:
-
 **Likely harm indicators (any = escalate):**
 - Sensitive data exposure  
 - Identity/credential exposure  
@@ -515,7 +516,6 @@ Notification is triggered when the violation **may cause harm**. Use the rubric 
 ---
 
 # ANNEX — EU AI ACT FUNDAMENTAL RIGHTS IMPACT ASSESSMENT (FRIA) (ALIGNED)
-
 ## FRIA-1 Deployment context
 - Use setting: [internal/external/public-facing/B2B/public authority]  
 - Primary function: [assist/triage/scoring/decision support]  
