@@ -6,350 +6,468 @@ Cadre juridique :
 
 ENGLISH VERSION: 
 
-# DATA PROTECTION IMPACT ASSESSMENT (DPIA) - AI SYSTEM 
-**Standard:** GDPR (Art. 35) & EDPB Guidelines (WP 248 rev.01)
-**Compatibility:** EU AI Act (High-Risk Systems)
+# DATA PROTECTION IMPACT ASSESSMENT (DPIA) + PDPL DOSSIER (HYBRID AI SYSTEM)
 
-**System Name:** [Name of the AI System]
-**Controller:** [Company Name]
-**Date:** YYYY-MM-DD
-**Version:** 1.6 (WP248 Compliant - Patched)
-**Status:** [ ] Draft  [ ] Validation  [ ] Approved
-**Lifecycle Stage:** [ ] Design (Prior to Processing) [ ] Pilot [ ] Production [ ] Periodic Review (Iterative)
-**AI Act Classification:** [ ] Prohibited [ ] High Risk [ ] Limited Risk [ ] Minimal Risk
+**Primary Standards:** GDPR (Art. 35) + EDPB Guidelines (WP 248 rev.01)  
+**PDPL Alignment:** Vietnam Personal Data Protection Law (Law No. 91/2025/QH15) — DPIA dossier + cross-border dossier + breach workflow  
+**Compatibility:** EU AI Act (High-Risk Systems) — FRIA annex
 
 ---
 
-## 1. TRIGGER ASSESSMENT (WP29 CRITERIA & NATIONAL LISTS)
-[cite_start]*Reference: WP 248 rev.01, Section III.B.a (Pages 8-11)* [cite: 124, 140]
+## 0. DOCUMENT CONTROL + PDPL DOSSIER METADATA (AUDIT-CRITICAL)
 
-### A. National Jurisdiction Check (Art 35(4) & 35(5))
-*Before assessing criteria, check specific national requirements.*
-* [cite_start][ ] **Blacklist Check:** Is this processing operation on a National DPA "Blacklist" (Art 35(4))? [cite: 197]
-  * *If YES, DPIA is **Mandatory** regardless of the criteria below.*
-* [cite_start][ ] **Whitelist Check:** Is this processing operation on a National DPA "Whitelist" (Art 35(5))? [cite: 209]
-  * *If YES, DPIA is **Not Required** (unless specific conditions are unmet).*
-* [ ] Checked for Sector-Specific DPIA Frameworks (e.g., Energy, Health)? 
+**System Name:** [Name of the AI System]  
+**Deployment Mode:** **HYBRID** (VN primary storage + foreign AI sub-processors for inference/rerank as permitted)  
+**Controller:** [Tenant / Customer Name (e.g., Law Firm)]  
+**Processor:** [Your Company Name]  
+**DPO / Compliance Owner:** [Name]  
+**CISO Owner:** [Name]  
+**Date:** YYYY-MM-DD  
+**Version:** 2.0 (WP248 + PDPL Hybrid Dossier)  
+**Status:** [ ] Draft  [ ] Validation  [ ] Approved  
+**Lifecycle Stage:** [ ] Design (Prior to Processing) [ ] Pilot [ ] Production [ ] Periodic Review  
+**AI Act Classification:** [ ] Prohibited [ ] High Risk [ ] Limited Risk [ ] Minimal Risk  
 
-### B. GDPR "High Risk" Determination (Art 35(1))
-[cite_start]*Note: This assessment determines risk to "rights and freedoms" under GDPR.* [cite: 76]
+### 0.1 PDPL 60-DAY CLOCK (MANDATORY)
+> PDPL requires the impact assessment dossier to be established/stored and the original copy sent within **60 days** from the **first day of processing**.
 
-**Applicability Check:** Does the processing meet **any** of the criteria below?
-*Note: Meeting **2+ criteria** strongly presumes a DPIA is required. [cite_start]However, a DPIA may still be mandatory if **only one** criterion is met, particularly for 'Systematic Monitoring' or 'Innovative Use' where high risks are inherent.* [cite: 187, 189]
-*Clarification:* In accordance with WP 248 rev.01, the use of innovative technology alone does not automatically constitute a high risk; the assessment remains contextual and based on the nature, scope, context and purposes of the processing.
-*(WP 248 rev.01, Section III.B, pages 8–11)*
+- **First Day of Processing (T0):** YYYY-MM-DD  
+- **PDPL DPIA Dossier Deadline (T0 + 60 days):** YYYY-MM-DD  
+- **Submission Status:** [ ] Not started  [ ] In progress  [ ] Submitted  
+- **Authority / Recipient:** [Name of competent PDPL authority]  
+- **Submission Method:** [Portal / Email / Physical / Other]  
+- **Submission Evidence:** [Link to receipt / acknowledgement / courier proof]  
+- **Submission Ref No.:** [______]
 
-| WP29 Criterion (Risk Indicator) | Applicability to this AI System |
-| :--- | :--- |
-| **1. [cite_start]Evaluation or Scoring** (e.g., credit scoring, behavioral prediction) [cite: 141] | [ ] Yes |
-| **2. [cite_start]Automated Decision Making** with legal/significant effect (Art 22) [cite: 143] | [ ] Yes |
-| **3. [cite_start]Systematic Monitoring** (e.g., surveillance, public area monitoring) [cite: 147] | [ ] Yes |
-| **4. [cite_start]Sensitive Data** (Art 9: Health, Biometric, Political, etc.) [cite: 150] | [ ] Yes |
-| **5. [cite_start]Large Scale Processing** (Volume, duration, geo-extent) [cite: 164] | [ ] Yes |
-| **6. [cite_start]Matching/Combining Datasets** exceeding user expectations [cite: 171] | [ ] Yes |
-| **7. [cite_start]Vulnerable Data Subjects** (Children, Employees, Patients) [cite: 172] | [ ] Yes |
-| **8. [cite_start]Innovative Use / New Tech** (AI, LLMs, IoT, Facial Recog) [cite: 174] | [x] **Yes (AI System)** |
-| **9. [cite_start]Preventing Rights/Service Access** (e.g., loan refusal) [cite: 184] | [ ] Yes |
+### 0.2 PDPL DOSSIER UPDATE RULES (MANDATORY)
+> PDPL dossier updates: update **every 6 months when changes occur** and **immediately update** in specific cases.
 
-### C. Joint Controllership (Art 26)
-*Are we acting alone or jointly?*
-* [ ] Sole Controller
-* [cite_start][ ] Joint Controller (Roles defined in attached Arrangement) [cite: 112]
-  * [cite_start]**Safeguard Check:** Have we ensured that sharing information for the DPIA does not compromise trade secrets or intellectual property (e.g., model weights)? [cite: 116]
+- **Next Scheduled Review (6-month cadence when changes occur):** YYYY-MM-DD  
+- **Immediate Update Triggers (PDPL):**
+  - [ ] Organizational restructure/termination/dissolution/bankruptcy  
+  - [ ] Change of personal data protection service provider (including AI vendor / reranker / hosting provider supporting personal data processing)  
+  - [ ] Change in business line/profession/service related to processing activities  
+- **Update Log (append-only):**
+  - v2.0 | YYYY-MM-DD | Initial PDPL Hybrid Dossier | [Owner] | [Approver]
+  - v__  | ____      | Trigger: ____              | ____    | ____
 
----
+### 0.3 HYBRID CROSS-BORDER DOSSIER LINK (MANDATORY)
+- **Cross-border Transfer Dossier Annex:** Annex PDPL-X (required for HYBRID)
+- **First Cross-border Transfer Date (T0x):** YYYY-MM-DD  
+- **Cross-border Dossier Deadline (T0x + 60 days):** YYYY-MM-DD  
+- **Cross-border Submission Evidence:** [Link]
 
-## 2. SYSTEMATIC DESCRIPTION & ASSETS
-[cite_start]*Reference: EDPB Annex 2 - "Systematic description... nature, scope, context and purposes... assets... recipients"* [cite: 392, 396]
+### 0.4 BREACH CLOCK + 72-HOUR WORKFLOW LINK (MANDATORY)
+> PDPL requires notification within **72 hours from discovery** if harms may occur; incident register required; processor notifies controller promptly.
 
-### A. Functional Description
-* **Nature & Scope:** [Describe what the AI does and the scale of deployment].
-* **Context:** [Describe the environment, e.g., "Internal HR tool" or "Public-facing chatbot"].
-* **Purposes:** [Specify the explicit outcome, e.g., "Automating customer triage"].
-
-### B. Asset Inventory (Hardware, Software, People)
-[cite_start]*Required by WP 248 Annex 2: "the assets on which personal data rely"* [cite: 396]
-* **Software Assets (The Model):**
-  * Architecture: (e.g., Transformer / LLM, Random Forest).
-  * Training Frameworks: (e.g., PyTorch, TensorFlow).
-* **Hardware & Network Assets:**
-  * Hosting: (e.g., AWS Paris Region, On-Prem GPU Cluster).
-  * Transmission Channels: (e.g., TLS 1.3 Encrypted API calls).
-* **Human Assets:**
-  * Access Rights: (e.g., Data Scientists, Prompt Engineers, HR Managers).
-* **Paper Assets:**
-  * [ ] N/A (Full Digital) or [ ] Scanned physical documents.
-
-### C. Recipients & Storage Duration
-* [cite_start]**Recipients (Who sees the data?):** [cite: 394]
-  * [ ] AI Vendor/Processor (e.g., OpenAI, Anthropic)
-  * [ ] Cloud Provider (e.g., AWS, Azure, GCP)
-  * [ ] Integration Partners (e.g., Zapier, CRM provider)
-  * [ ] Internal Support / IT Admin
-* [cite_start]**Legal Qualification of Actors (GDPR)**  
-* [ ] Controller  
-* [ ] Joint Controller (Art. 26 GDPR – joint arrangement attached)  
-* [ ] Processor (Art. 28 GDPR)
-
-For each external recipient:
-**Release Gate (Mandatory):**  
-No deployment, validation, or approval of this DPIA is permitted **until every external recipient listed above has a fully completed row in the table below**, including:
-- role qualification (Controller / Joint Controller / Processor),
-- applicable GDPR instrument (Art. 26 or Art. 28),
-- transfer status (if applicable),
-- and confirmation of contractual safeguards.
-
-This requirement applies to **all external recipients**, including AI vendors, cloud providers, and integration partners.
-
-| Recipient | Role (Controller / Joint / Processor) | GDPR instrument (Art 26 / Art 28) | Transfer? (Y/N) | Notes |
-| :--- | :--- | :--- | :--- | :--- |
-| [AI vendor] | [ ] C / [ ] JC / [ ] P | [ ] 26 / [ ] 28 | [ ] Y / [ ] N | [SCC/DPF/TIA if Y] |
-| [Cloud] | ... | ... | ... | ... |
-
-- Role qualification: Controller / Joint Controller / Processor  
-- Applicable legal basis: Art. 26 or Art. 28 GDPR  
-- Contractual safeguards in place:
-  * [ ] Joint controllership agreement (Art. 26)  
-  * [ ] Data Processing Agreement with documented instructions (Art. 28(3))  
-  * [ ] Audit rights / security documentation available
-* [cite_start]**Retention Policy:** [cite: 403]
-  * Input Prompts: [e.g., Retained for 30 days then deleted]
-  * Output/Completions: [e.g., Stored in user account for 1 year]
-  * Logs: [e.g., 90 days rolling retention]
+- **Incident & Breach Response Pack:** Annex PDPL-Y  
+- **Incident Register Location:** [Link / system module]  
+- **Authority Notification Template:** [Link]  
+- **Processor → Controller Notification Template:** [Link]
 
 ---
 
-## 3. NECESSITY, PROPORTIONALITY & RIGHTS
-[cite_start]*Reference: EDPB Annex 2 - "Necessity and proportionality... measures contributing to rights"* [cite: 398, 404]
+## 1. TRIGGER ASSESSMENT (GDPR/WP248) + PDPL SCOPE CHECK
 
-### A. Lawfulness of Processing (Art. 6)
-* **Phase 1: Training (If applicable):** 
-[ ] Consent [ ] Legitimate Interest [ ] Contract [ ] N/A
-* **Phase 2: Inference (Usage):**
-  * [ ] Consent
-  * [ ] Contract
-  * [ ] Public Task
-  * [ ] Legitimate Interest
-    * [cite_start]**MANDATORY SPECIFICATION:** *Describe the specific interest pursued (as required by Art 35(7)(a)):* [cite: 35]
-    * _________________________________________________________________________
-    * *(Examples: Fraud detection, Network security, Service optimization)*
-    
-**Special category / sensitive data (Art. 9 GDPR):**  
-- [ ] No  
-- [ ] Yes → **Art. 9(2) condition relied upon:** ________________________________  
-  *(e.g., explicit consent (9(2)(a)), employment/social protection law (9(2)(b)), vital interests (9(2)(c)), not-for-profit bodies (9(2)(d)), data manifestly made public (9(2)(e)), legal claims (9(2)(f)), substantial public interest (9(2)(g)), healthcare (9(2)(h)), public health (9(2)(i)), research/statistics (9(2)(j)) — specify)*
+### 1.1 GDPR TRIGGER ASSESSMENT (WP29 CRITERIA & NATIONAL LISTS)
+*Reference: WP 248 rev.01, Section III.B.a (Pages 8-11)*
 
-**Criminal offence / conviction data (Art. 10 GDPR):**  
-- [ ] No  
-- [ ] Yes → **Legal basis / authorising law (Art. 10 + national law):** ________________________________  
-  *(Specify the applicable national legal provision and safeguards, including access restrictions and retention controls.)*
-  *Additional safeguards implemented (if applicable):* ______________________
+#### A. National Jurisdiction Check (Art 35(4) & 35(5))
+- [ ] **Blacklist Check:** Processing operation on National DPA “Blacklist” (Art 35(4))  
+  - If YES → DPIA mandatory.
+- [ ] **Whitelist Check:** Processing operation on National DPA “Whitelist” (Art 35(5))  
+  - If YES → DPIA not required (unless conditions unmet).
+- [ ] Sector-specific DPIA frameworks checked (e.g., health/finance/energy).
 
-**Data Sources Processed:**  
-- **Training:** [ ] Internal data  [ ] Publicly available data  [ ] Third-party provided data  [ ] N/A  
-- **Inference:** [ ] User-provided data  [ ] Business data  [ ] Technical logs
+#### B. GDPR “High Risk” Determination (Art 35(1))
+Applicability: does the processing meet any of the criteria below?
 
-**Use of prompts / outputs for model training or improvement:**  
-- [ ] **No** — Prompts and outputs are not reused for training or model improvement.  
-- [ ] **Yes** — Limited reuse under the conditions specified below:
-  - **Scope:** [e.g., safety tuning / quality improvement / fine-tuning / analytics]
-  - **Data categories involved:** [prompts / outputs / metadata]
-  - **Retention period:** [e.g., X days / anonymised immediately]
-  - **Opt-out mechanism:** [e.g., user setting / contractual clause / account-level flag]
-  - **Safeguards:** [e.g., anonymisation, aggregation, exclusion of special category data]
+| WP29 Criterion (Risk Indicator) | Applicability |
+|---|---|
+| 1. Evaluation or scoring | [ ] Yes |
+| 2. Automated decision-making with legal/significant effect | [ ] Yes |
+| 3. Systematic monitoring | [ ] Yes |
+| 4. Sensitive data | [ ] Yes |
+| 5. Large scale processing | [ ] Yes |
+| 6. Matching/combining datasets exceeding expectations | [ ] Yes |
+| 7. Vulnerable data subjects | [ ] Yes |
+| 8. Innovative use/new tech (AI/LLMs) | [x] **Yes (AI System)** |
+| 9. Preventing rights/service access | [ ] Yes |
 
-*Note:* Where prompts or outputs are reused for training, this processing must be reflected in the legal basis (Art. 6 GDPR) and, where applicable, in Art. 9 / Art. 10 conditions.
+#### C. Joint Controllership (Art 26)
+- [ ] Sole Controller  
+- [ ] Joint Controller (roles defined in attached arrangement)
+- [ ] Safeguard: DPIA sharing does not compromise trade secrets/IP (e.g., weights).
 
-### B. Proportionality Assessment (Why AI?)
-* **Necessity:** Could the objective be achieved without AI (e.g., rules-based software)?
-    * [ ] No. (Justification: Complexity of language/pattern matching requires AI inference).
-    * [ ] Yes. (If yes, using High-Risk AI may be disproportionate).
-* [cite_start]**Data Minimization (Art 5(1)(c)):** [cite: 402]
-    * [ ] We only process inputs strictly necessary for the prompt.
-    * [ ] Context window history is limited to [X] turns.
-
-### C. Codes of Conduct & Certifications (Art 40/42)
-[cite_start]*Reference: WP 248 Page 16 - "Compliance with a code of conduct... Certifications, seals and marks... should be taken into account"* [cite: 284, 286]
-* **Applicability:**
-    * [ ] No current approved codes.
-    * [ ] Adherence to approved Code of Conduct (Name: ____________________).
-    * [ ] Adherence to approved Certification Mechanism (Name: ____________________).
-
-### D. Data Subject Rights Checklist
-[cite_start]*Reference: WP 248 Annex 2 - Measures contributing to the rights of data subjects* [cite: 404]
-
-| Right | Measure Implemented in AI System |
-| :--- | :--- |
-| [cite_start]**Information (Art 13/14)** [cite: 405] | [ ] Transparency notice displayed. "AI System" label visible. |
-| [cite_start]**Access & Portability (Art 15/20)** [cite: 406] | [ ] User can export chat/transaction history (JSON/CSV). |
-| [cite_start]**Rectification & Erasure (Art 16/17)** [cite: 407] | [ ] **RAG Strategy:** Source documents removed from retrieval DB to stop citations (since model weights cannot be edited). |
-| [cite_start]**Object & Restriction (Art 18/21)** [cite: 408] | [ ] Opt-out available for future training. [ ] Stop generation button. |
-| **Automated Decision Review (Art 22)** | [ ] Human-in-the-loop available for contesting decisions. |
-
-### E. International Transfers (Chapter V)
-* [cite_start]**Does data leave the EEA?** [cite: 409]
-  * [ ] No (Data residency pinned to EU Region).
-  * [ ] Yes (Transfer to US/Third Country).
-* **Transfer Mechanism:**
-  * [ ] Adequacy Decision (e.g., EU-US Data Privacy Framework).
-  * [ ] Standard Contractual Clauses (SCCs) + **Transfer Impact Assessment (TIA)**.
+### 1.2 PDPL SCOPE & APPLICABILITY (HYBRID)
+- [ ] System processes **personal data** as defined under PDPL.  
+- [ ] Processing includes **AI / cloud / big data** components → PDPL requires security/authz and AI risk classification measures.  
+- [x] HYBRID architecture uses non-VN sub-processors for inference/rerank → **Cross-border Transfer Dossier required** (Annex PDPL-X).  
+- [ ] PDPL “processing without consent” is used only under a documented exception path with proof + monitoring (see §3.2).
 
 ---
 
-## 4. CONSULTATION PROCESS
-[cite_start]*Reference: EDPB Annex 2 - "Interested parties are involved"* [cite: 417]
+## 2. SYSTEMATIC DESCRIPTION & ASSETS (WP248) + HYBRID DATA-FLOW PROOF
 
-* [cite_start]**Advice of the DPO (Art 35(2)):** Has the DPO reviewed the assessment? [cite: 418]
-  * [ ] Yes [ ] Pending.
-* [cite_start]**Views of Data Subjects (Art 35(9)):** Have views been sought? [cite: 419]
-  * [ ] Yes (Survey/Focus Group)
-  * [cite_start][ ] No. **(REQUIRED: Insert Justification):** [e.g., Confidentiality of business plans / Disproportionate effort (WP 248 p.15)]. [cite: 256]
-* [cite_start]**Processor Assistance (Art 28(3)(f)):** [cite: 251]
-  * [ ] Vendor security documentation/System Card reviewed.
-  * [ ] Roles & Responsibilities contractually defined (Art. 28(3) Agreement in place).
+### 2.1 Functional Description
+- **Nature & Scope:** [Describe what the AI does, scale, number of users, tenant model].  
+- **Context:** [Internal tool / client-facing chatbot / legal assistant].  
+- **Purposes:** [Legal analysis, contract drafting, compliance Q&A, etc.].  
+- **Decision Role:** [ ] Advisory only  [ ] Decision support  [ ] Automated decision-making
 
----
+### 2.2 Data Flow Diagram (MANDATORY AUDIT ARTIFACT)
+Attach a one-page diagram showing:  
+**Ingress → VN Storage → Retrieval/RAG → Risk Gate → Redaction → Cross-border Egress → Response → Logging → Retention/Deletion**  
+- Diagram link: [____]
 
-## 5. RISK ASSESSMENT (EDPB TAXONOMY)
-[cite_start]*Reference: EDPB Annex 2 - "Origin, nature, particularity and severity of the risks... risks sources are taken into account"* [cite: 411, 412]
+### 2.3 Asset Inventory (Hardware, Software, People)
+**Software Assets**
+- Model(s): [LLM name/version], reranker(s): [vendor], embeddings: [model]  
+- Orchestration: [LangGraph / toolchain]  
+- Vector store: [pgvector / Qdrant]  
+- Policy engine: [risk gate/redaction module]
 
-[cite_start]**Guidance on Impact Type:** "Rights and freedoms" include privacy but also freedom of speech, non-discrimination, freedom of movement, etc. [cite: 77]
+**Hardware & Network**
+- Primary hosting in VN: [VN region / on-prem]  
+- External calls: [LLM endpoint region], [reranker endpoint region]  
+- Transmission: TLS 1.3, mTLS optional, API gateway enforced.
 
-| Risk ID | Risk Source | Scenario | Impact Type (Fundamental Rights) | Severity | Likelihood | Risk Level |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **R1** | **External Attacker** | **Model Inversion:** Attacker extracts PII via prompting. | Illegitimate Access (Privacy) | High | Low | **Medium** |
-| **R2** | **External User** | **Prompt Injection:** Bypassing safety filters. | Undesired Modification | High | Medium | **High** |
-| **R3** | **System/Model** | **Hallucination/Bias:** AI invents facts or shows prejudice against protected groups. | **Discrimination / Free Speech** | High | High | **Critical** |
-| **R4** | **Infrastructure** | **Availability/DoS:** System overloaded. | Disappearance (Temp) | Low | Medium | **Low** |
-| **R5** | **Government** | **Cloud Access:** US Gov access (CLOUD Act). | Illegitimate Access (Privacy) | Medium | Low | **Medium** |
+**Human Assets**
+- Roles: [Admin, Support, DPO, Security, Tenant Admin]  
+- Privileged access requires MFA + approvals: [Yes/No]
 
----
+**Paper Assets**
+- [ ] None (fully digital)  [ ] Scanned documents (describe)
 
-## 6. MEASURES TO TREAT RISKS
-[cite_start]*Reference: EDPB Annex 2 - "Measures envisaged to treat those risks"* [cite: 416]
+### 2.4 Data Categories + Classification (MANDATORY FOR PDPL RISK GATE)
+- **Basic personal data:** [e.g., name, email, phone, ID no.]  
+- **Sensitive personal data:** [e.g., biometrics, location, health, political, financial]  
+- **Special categories (GDPR Art 9):** [Yes/No]  
+- **Criminal offence/conviction data (GDPR Art 10):** [Yes/No]
 
-### A. Security & Integrity Measures (Art. 32 GDPR)
-*Measures primarily addressing confidentiality, integrity and availability of personal data.*
-
-| Risk ID | Security Measures (Technical & Organizational) | Residual Risk | Approved? |
-| :--- | :--- | :--- | :--- |
-| **R1, R5** | **Anonymization/Pseudonymization:** PII stripped before API call. **Encryption:** TLS in transit, AES at rest. | Low | [x] |
-| **R2** | **Model & Prompt Security:** Guardrails (NeMo/Llama), input validation, regular red teaming. | Medium | [ ] |
-| **R4** | **Availability Controls:** Rate limiting, monitoring, DoS protection. | Low | [ ] |
-
----
-
-### B. Fundamental Rights & Safeguard Measures
-*Measures primarily addressing risks to rights and freedoms of data subjects (WP 248 Annex 2).*
-
-| Risk ID | Rights Safeguards (Procedural & Human-Centric) | Residual Risk | Approved? |
-| :--- | :--- | :--- | :--- |
-| **R3** | **Grounding (RAG):** Outputs restricted to verified sources; citations enforced to reduce hallucination and bias. | Medium | [ ] |
-| **R3** | **Human Oversight (Art. 22):** Mandatory human review for decisions with legal or similarly significant effects. | Low | [x] |
-| **R3** | **Contestability & Explanation:** Users may request explanation or challenge outcomes via defined procedure. | Low | [x] |
-
-[cite_start]**CRITICALITY CHECK:** Does any residual risk involve "significant or irreversible consequences" (e.g., threat to life, layoff, financial jeopardy) that the subject cannot overcome? [cite: 334]
-* [ ] No
-* [cite_start][ ] Yes -> **STOP.** Prior Consultation with Supervisory Authority is **MANDATORY**. [cite: 335]
+**Classification method:**  
+- Rule-based detectors + ML classifier + manual override (admin-only).  
+- Output tags: `BASIC | SENSITIVE | SPECIAL | CRIMINAL | UNKNOWN`
 
 ---
 
-## 7. MONITORING & REVIEW PLAN
-[cite_start]*Reference: WP 248 rev.01 (Page 13) - "Review... at least when there is a change of the risk"* [cite: 309]
+## 3. LAWFUL BASIS, NECESSITY, PROPORTIONALITY + PDPL CONSENT MODEL
 
-**Re-assessment Triggers:**
-1. **Model Drift:** Accuracy drops below defined threshold.
-2. **New Capabilities:** Enabling plugins, internet access, or new data categories.
-3. [cite_start]**Purpose Expansion:** Use of the model for a new intent (e.g., moving from "customer support" to "sales profiling"). [cite: 217]
-4. [cite_start]**Contextual Change:** New legislation (e.g., AI Act), regulatory guidance, or shifts in societal acceptance (WP 248 p.13).
-5. **Periodicity:** Review every [12] months.
+### 3.1 GDPR Lawfulness (Art 6 / Art 9 / Art 10)
+**Phase 1 (Training, if applicable):** [ ] Consent [ ] Legitimate Interest [ ] Contract [ ] N/A  
+**Phase 2 (Inference/Usage):** [ ] Consent [ ] Contract [ ] Public Task [ ] Legitimate Interest
 
-**Compliance Audit (Art 35(11)):**
-* [ ] **Data Flow Verification:** Verify actual data flows match the description in Section 2.
-* [ ] **Policy Check:** Confirm retention policy (e.g., deletion of prompts) is effectively executing.
-* [ ] Iterative Review: This DPIA will be updated if the "Nature, Scope, Context or Purposes" change (Art. 35(11)).
-* [ ] **Art. 25 Integration (DPbD/DPbDf):** DPIA outcomes are implemented in system design (requirements, architecture, defaults) and validated before release.
-* [ ] **Release Gate:** No production deployment unless Art. 25 integration items are closed or formally risk-accepted by Controller + DPO.
-* [ ] **Art. 24 Accountability:** Controller confirms that DPIA findings are reflected in organisational policies, procedures, and controls.
+If Legitimate Interest:  
+- **Specific interest pursued:** ______________________________  
+- **Balancing test summary:** [link]  
+- **Opt-out / objection mechanism:** [link]
+
+Sensitive/special data basis (Art 9(2)): ______________________________  
+Criminal data authorising law + safeguards (Art 10 + national law): ______________________________
+
+### 3.2 PDPL CONSENT & “NO-CONSENT EXCEPTION” (AUDIT-CRITICAL)
+**Default rule:** processing requires explicit and verifiable consent per purpose unless a documented PDPL exception applies.
+
+#### A. Consent Capture (Per Purpose)
+- [ ] Clear purpose list shown to data subject.  
+- [ ] Active opt-in (no silence, no pre-ticked boxes).  
+- [ ] Consent record stored with: subject_id, purposes, timestamp, policy version, method, evidence.
+
+**Consent Records System**
+- Table / register: `consent_records`  
+- Immutability: append-only log / WORM storage / hashing [describe]  
+- Withdrawal: immediate effect for future processing (§3.3 / §6.4).
+
+#### B. Processing Without Consent (EXCEPTION PATH ONLY)
+If used:
+- [ ] Legal basis category selected from PDPL exception list (document exact basis).  
+- [ ] Justification required (free text) + approver role required.  
+- [ ] Monitoring mechanism in place (periodic review + audit trail + complaint channel).  
+- [ ] Technical enforcement: feature flag and strict scope limits.
+
+**RELEASE GATE:** No-consent mode cannot be enabled in production without DPO + Controller approval and recorded justification.
+
+### 3.3 Necessity & Proportionality (Why AI?)
+- Could the objective be achieved without AI?  
+  - [ ] No → Justify: ______________________________  
+  - [ ] Yes → Justify why AI still proportionate: ______________________________
+
+**Data minimization**
+- [ ] Only necessary inputs processed (prompt constraints + UI guidance).  
+- [ ] Conversation history capped to [X] turns / [Y] tokens.  
+- [ ] Retrieval context capped to [N] chunks, least-privilege snippets only.
 
 ---
 
-## 8. SIGN-OFF & PUBLICATION
-[cite_start]*Reference: EDPB Annex 2 - "Document the decisions taken"* [cite: 359]
+## 4. RECIPIENTS, SUB-PROCESSORS, RETENTION + HYBRID EGRESS REGISTER
 
-* **DPO Advice:**
-  * [ ] Compliant.
-  * [ ] Residual risks high; [cite_start]**Consult Supervisory Authority (Art 36)**. [cite: 335]
-* **Controller Rationale (if deviating from DPO or Data Subject views):**
-  * [ ] N/A (Consensus reached).
-  * [cite_start][ ] Deviation Justification: *[Insert reasoning here - Required by WP 248 p.15]* [cite: 255]
-* **Transparency Decision:**
-  [cite_start]*Reference: WP 248 Page 18 - "Publishing a summary could foster trust"* [cite: 313]
-  * [ ] Full DPIA is Confidential.
-  * [ ] Public Summary will be published (Link/Location: __________).
-* **Controller Decision:** [ ] Proceed (Only if Residual Risk is Low/Medium OR Consultation Completed) [ ] Stop
-* **CISO Validation:** [ ] Validated
-* **Date:** ____________________
+### 4.1 Roles & Qualification (GDPR)
+- [ ] Controller  
+- [ ] Joint Controller (Art 26, arrangement attached)  
+- [ ] Processor (Art 28, DPA attached)
+
+### 4.2 External Recipients Register (RELEASE GATE)
+No deployment/validation/approval until every external recipient is completed:
+
+| Recipient | Service | Role (C/JC/P) | GDPR instrument | PDPL role (Controller/Processor/Sub-processor) | Cross-border? (Y/N) | Region(s) | Contract & security proof | Approved |
+|---|---|---|---|---|---|---|---|---|
+| [LLM vendor] | Inference | P | Art 28 | Sub-processor | Y | [US/EU/SG] | [DPA + no-train + retention] | [ ] |
+| [Reranker] | Rerank | P | Art 28 | Sub-processor | Y | [__] | [__] | [ ] |
+| [Cloud VN] | Hosting | P | Art 28 | Sub-processor | N | VN | [__] | [ ] |
+
+### 4.3 Retention Policy (SYSTEM-WIDE)
+- **User documents:** [TTL e.g., 24h]  
+- **Embeddings / vectors:** [TTL / purge conditions]  
+- **Prompts:** [retention days, redaction]  
+- **Outputs:** [retention days]  
+- **Logs/audit:** [retention days; tamper resistance]  
+- **Backups:** [retention + deletion propagation policy]
+
+**Deletion/Destruction assurance**
+- [ ] Hard delete implemented for destruction scenarios.  
+- [ ] Derived artifacts deleted (vectors, caches, citations store).  
+- [ ] Non-restoration measures: cryptographic erasure / secure wipe [describe].
+
+### 4.4 HYBRID DATA EGRESS REGISTER (MANDATORY)
+Every external AI call must create an immutable egress log entry:
+
+**Egress log fields**
+- request_id, tenant_id, timestamp  
+- vendor/service, region  
+- data categories sent (prompt / snippets / metadata)  
+- redaction mode applied (`NONE | BASIC_REDACT | STRONG_REDACT`)  
+- risk_level (`LOW | MED | HIGH`)  
+- retention expectation at vendor (0/30/90)  
+- “no training” attestation flag  
+- outcome (allowed/blocked), reason
+
+**RELEASE GATE:** No external call allowed without egress logging enabled.
 
 ---
-## ANNEX. EU AI ACT – FUNDAMENTAL RIGHTS IMPACT ASSESSMENT (FRIA)
 
-This annex constitutes the **Fundamental Rights Impact Assessment (FRIA)** required 
-under **Article 27 of the EU AI Act** for High-Risk AI Systems.
+## 5. DATA SUBJECT RIGHTS (GDPR) + PDPL RIGHTS EXECUTION (OPERATIONAL)
 
-The FRIA reuses and builds upon this **Data Protection Impact Assessment (DPIA) under 
-Article 35 GDPR**, in line with the EU risk-based and fundamental-rights-centric approach.
+### 5.1 Rights Checklist (GDPR)
+| Right | Measures Implemented |
+|---|---|
+| Information (Art 13/14) | [ ] Transparency notice + AI label |
+| Access & portability (Art 15/20) | [ ] Export user data (JSON/CSV) |
+| Rectification & erasure (Art 16/17) | [ ] Remove source docs from retrieval + delete derived artifacts |
+| Objection & restriction (Art 18/21) | [ ] Opt-out for training + stop generation |
+| Automated decision review (Art 22) | [ ] Human-in-the-loop for significant effects |
 
-### FRIA-1. Deployment context (real-world use)
-- **Use setting:** [internal / external / public-facing / B2B / public authority]
-- **Primary function:** [e.g., recommendation, triage, assistance, scoring, decision support]
-- **Legally or similarly significant effects:** [ ] No  [ ] Yes → specify: ___________________
-- **Affected persons:** [customers / employees / patients / students / general public]
-- **Sector & environment:** [e.g., HR, finance, health, education, public services]
-- **Interfaces:** [chatbot, API, portal, mobile, back-office]
-- **Geographic scope:** [EU / non-EU]  | **Languages:** [___]
+### 5.2 PDPL RIGHTS EXECUTION (MANDATORY)
+**DSR Intake**
+- Channel(s): [portal/email/hotline]  
+- Identity verification steps: [____]  
+- SLA target: [____]
 
-### FRIA-2. Fundamental rights screened
-Potential impacts were assessed against fundamental rights, including:
-- **Non-discrimination / Equality**
-- **Freedom of expression / Access to information**
-- **Privacy & Personal data protection**
-- **Right to an effective remedy / Contestability**
-- **Human dignity & protection of vulnerable persons**
-- **Surveillance / Profiling**
+**Execution Controls**
+- Withdrawal/restriction triggers: processing freeze + block embedding/retrieval/egress.  
+- Correction workflow: update data at source + propagate to derived stores.  
+- Deletion workflow: delete raw + derived artifacts + ensure non-restoration where required.
 
-For each right, the assessment relies on:
-- risk scenarios (DPIA Section 5),
-- mitigation and safeguards (DPIA Section 6),
-- and the monitoring plan (DPIA Section 7).
+**Evidence**
+- DSR register: `dsr_requests` with timestamps, actions, closure proof.
 
-### FRIA-3. Stakeholders & affected groups
-- **System users:** [e.g., internal staff / customers / partners]
-- **Affected individuals:** [e.g., candidates, employees, customers, users]
-- **Potentially vulnerable groups:** [ ] No  [ ] Yes → specify: ___________________________
-- **Redress / contact channel:** [process, channel, timeline, owner]
-- **Consultation of affected persons / groups:**  
-[ ] **Yes** — Method(s): [e.g., survey, workshop, user testing, representative body]  
-[ ] **No** → **Justification:** [e.g., disproportionate effort, confidentiality constraints, early design phase, absence of direct impact]
+---
 
-*Note:* Where consultation was not conducted, the rationale aligns with GDPR Art. 35(9) and is documented for accountability purposes.
+## 6. PDPL AI RISK CLASSIFICATION GATE (MANDATORY FOR HYBRID)
 
+### 6.1 Risk Tiering Model (ENFORCEMENT, NOT JUST ANALYSIS)
+- **RISK-LOW**: no identifiers; general legal analysis → **HYBRID allowed**  
+- **RISK-MED**: identifiers present → **HYBRID allowed only with redaction**; otherwise VN-only  
+- **RISK-HIGH**: sensitive categories / high harm potential → **VN-only** or **BLOCK** unless strict basis + extra safeguards
 
-### FRIA-4. Safeguards & governance measures
-Key safeguards and controls include:
-- **Human oversight** for decisions with legal or similarly significant effects (GDPR Art. 22) (DPIA §6.B)
-- **Contestability & explanation** via a defined redress procedure (DPIA §6.B / §3.D)
-- **Anti-bias / anti-hallucination safeguards** (RAG grounding, verified sources, citations) (DPIA §6.B)
-- **Security & integrity measures** (encryption, access control, monitoring, etc.) (DPIA §6.A)
-- **Continuous monitoring and reassessment** upon changes in purpose, scope, context, or capabilities (DPIA §7)
+### 6.2 Routing Outcomes (Deterministic)
+- `VN_ONLY` — process using VN-hosted models/services only  
+- `HYBRID_REDACTED` — external calls permitted only after redaction  
+- `BLOCK` — refuse processing; prompt user for safer input or alternative
 
-### FRIA-5. FRIA conclusion (final determination)
-Based on this FRIA, **no residual risks of a disproportionate or irreversible nature** to fundamental rights have been identified, taking into account the implemented technical and organisational measures and human oversight.
+### 6.3 Override Policy (RESTRICTED)
+- Overrides require: DPO approval + controller approval + justification + time-bound scope + monitoring  
+- Every override logged (who/when/why).
 
-The AI system may therefore be **deployed**, **subject to**:
-- **continuous monitoring**,
-- **reassessment** in case of changes to the nature, scope, context, or purposes of use,
-- and activation of **human oversight / contestability mechanisms** where required.
+### 6.4 Guardrails for Hybrid External Calls
+- Redaction before egress (PII stripping + sensitive removal).  
+- Prompt injection defenses (tool isolation, allowlists, output filters).  
+- Citation-only / grounded mode for legal outputs where required.  
+- No vendor training use (contract + config).
+
+---
+
+## 7. RISK ASSESSMENT (EDPB TAXONOMY) + HYBRID-SPECIFIC SCENARIOS
+
+### 7.1 Risk Register
+| Risk ID | Source | Scenario | Impact Type | Severity | Likelihood | Risk Level |
+|---|---|---|---|---|---|---|
+| R1 | External attacker | Model inversion / data extraction | Illegitimate access | High | Low | Medium |
+| R2 | External user | Prompt injection bypassing controls | Integrity / misuse | High | Medium | High |
+| R3 | System/model | Hallucination/bias leading to harm | Discrimination / speech | High | High | Critical |
+| R4 | Infrastructure | Availability/DoS | Availability | Low | Medium | Low |
+| R5 | Government/legal | Foreign jurisdiction access risk | Illegitimate access | Medium | Low | Medium |
+| R6 | Hybrid egress | Excessive context sent externally | Privacy breach | High | Medium | High |
+| R7 | Tenant isolation | Cross-tenant leakage | Privacy breach | High | Low | Medium |
+
+---
+
+## 8. MEASURES TO TREAT RISKS (SECURITY + FUNDAMENTAL RIGHTS) + PDPL EVIDENCE
+
+### 8.1 Security & Integrity Measures (GDPR Art 32 + PDPL security expectations)
+| Risks | Measures | Residual Risk | Approved |
+|---|---|---|---|
+| R1, R5, R6 | Redaction before egress; encryption TLS; AES at rest; key mgmt | Low/Med | [ ] |
+| R2 | Guardrails; input validation; sandboxed tools; red-team schedule | Medium | [ ] |
+| R4 | Rate limiting; autoscaling; WAF; monitoring | Low | [ ] |
+| R7 | Tenant isolation (RLS/tenant_id everywhere); authz checks; tests | Low | [ ] |
+
+### 8.2 Fundamental Rights Safeguards (WP248)
+| Risks | Measures | Residual Risk | Approved |
+|---|---|---|---|
+| R3 | Grounded RAG with citations; verified sources; refusal on uncertainty | Medium | [ ] |
+| R3 | Human oversight for significant effect decisions | Low | [ ] |
+| R3 | Contestability, explanation, redress workflow | Low | [ ] |
+
+**Criticality check**
+- [ ] No significant/irreversible consequence residual risk  
+- [ ] Yes → STOP → consult authority / regulator (GDPR Art 36 / PDPL escalation path)
+
+---
+
+## 9. MONITORING, REVIEW, AUDIT + PDPL UPDATE CADENCE (HYBRID)
+
+### 9.1 Re-assessment Triggers (WP248 + PDPL)
+- Model drift below threshold  
+- New capabilities: plugins, browsing, new tools, new data categories  
+- Purpose expansion / new intent  
+- Regulatory change: PDPL guidance / AI Act updates  
+- **PDPL immediate update triggers (mandatory)**:
+  - Organizational restructure/termination/dissolution/bankruptcy  
+  - Change of personal data protection service provider  
+  - Change in business line/service related to processing  
+
+### 9.2 Periodicity
+- GDPR/WP248 review: every [12] months  
+- PDPL dossier review: every 6 months **when changes occur**, plus immediate triggers above.
+
+### 9.3 Compliance Audit Checklist (Release Gate)
+- [ ] Data flow verification matches §2.2 diagram  
+- [ ] Retention + deletion jobs proven via logs  
+- [ ] Egress register active for all external calls  
+- [ ] Risk gate enforced + override logs reviewed  
+- [ ] DSR execution tested (withdraw/restrict/delete)  
+- [ ] Incident workflow tested (tabletop)
+
+---
+
+## 10. SIGN-OFF, ACCOUNTABILITY + PUBLICATION
+
+**DPO Advice:** [ ] Compliant  [ ] Not compliant (mitigations required)  
+**Controller Decision:** [ ] Proceed  [ ] Stop  [ ] Proceed with documented risk acceptance  
+**Processor Confirmation:** [ ] Implemented controls per dossier  [ ] Pending  
+**CISO Validation:** [ ] Validated  [ ] Pending  
+**Date:** ____________________
+
+**Transparency Decision**
+- [ ] Full DPIA confidential  
+- [ ] Publish public summary: [link]
+
+---
+
+# ANNEX PDPL-X — CROSS-BORDER TRANSFER IMPACT ASSESSMENT DOSSIER (HYBRID)
+
+## X.1 Scope
+This annex documents cross-border transfers arising from HYBRID processing (foreign LLM/reranker endpoints, foreign logging/monitoring, foreign support access).
+
+## X.2 First Transfer Date + 60-Day Deadline
+- **First cross-border transfer date (T0x):** YYYY-MM-DD  
+- **Dossier deadline (T0x + 60 days):** YYYY-MM-DD  
+- **Submission evidence:** [link]  
+
+## X.3 Transfers Register (MANDATORY)
+| Vendor/Subprocessor | Service | Region | Data categories sent | Purpose | Safeguards | Vendor retention | Egress logs | Approved |
+|---|---|---|---|---|---|---|---|---|
+| [LLM] | inference | [__] | prompt+snippets | legal answer | redaction+TLS | [__] | yes | [ ] |
+
+## X.4 Safeguards (ENFORCEABLE)
+- Minimization: only necessary snippets; cap chunks/tokens  
+- Strong redaction for identifiers and sensitive categories  
+- Encryption in transit  
+- Access controls + audit trails  
+- “No training use” by vendor (contract + config)
+
+## X.5 Exceptions Check (PDPL)
+- [ ] Exception applies (describe)  
+- [ ] No exception applies → full dossier obligations apply
+
+## X.6 Updates (PDPL cadence)
+Updates required per §0.2 triggers and §9.1.
+
+---
+
+# ANNEX PDPL-Y — INCIDENT REGISTER + 72-HOUR NOTIFICATION PACK
+
+## Y.1 Incident Timestamps
+- Discovery time (T0i): ______  
+- 72-hour deadline (T0i + 72h): ______  
+- Initial containment time: ______  
+
+## Y.2 Incident Record (MINIMUM FIELDS)
+- Incident ID, tenant(s) affected, systems affected  
+- Data categories impacted, estimated scale  
+- Harm likelihood assessment  
+- Actions taken: containment, remediation, prevention  
+- Authority notification: time/method/evidence  
+- Processor → Controller notification: time/evidence  
+- Postmortem link
+
+## Y.3 Templates
+- Authority notice template: [link]  
+- Controller notice template: [link]  
+- Internal postmortem template: [link]
+
+## Y.4 Tabletop Exercise
+- Last exercise date: ______  
+- Findings: ______  
+- Actions closed: [ ] Yes [ ] No
+
+---
+
+# ANNEX — EU AI ACT FUNDAMENTAL RIGHTS IMPACT ASSESSMENT (FRIA) (UNCHANGED CORE, ALIGNED)
+
+## FRIA-1 Deployment context
+- Use setting: [internal/external/public-facing/B2B/public authority]
+- Primary function: [assist/triage/scoring/decision support]
+- Significant effects: [ ] No  [ ] Yes → specify: ______
+- Affected persons: [customers/employees/patients/students/public]
+- Interfaces: [chatbot/API/portal/mobile/back-office]
+- Geo scope: [EU/non-EU] | Languages: [__]
+
+## FRIA-2 Fundamental rights screened
+- Non-discrimination / Equality  
+- Freedom of expression / Access to information  
+- Privacy / Data protection  
+- Right to remedy / Contestability  
+- Human dignity / Vulnerable persons  
+- Surveillance / Profiling
+
+## FRIA-3 Stakeholders & affected groups
+- Users: ______  
+- Affected persons: ______  
+- Vulnerable groups: [ ] No [ ] Yes → ______  
+- Redress channel: ______  
+- Consultation: [ ] Yes [ ] No → justification: ______
+
+## FRIA-4 Safeguards & governance
+- Human oversight for significant effects  
+- Contestability & explanation procedures  
+- Grounded outputs / citations  
+- Security + access controls  
+- Continuous monitoring and reassessment
+
+## FRIA-5 Conclusion
+- [ ] Deployable with ongoing monitoring  
+- [ ] Not deployable until mitigations complete
 
 ### FRIA–DPIA Cross-Reference Table
 - **Non-discrimination / Equality:** DPIA Section 5 (Risk R3), Section 6.B  
