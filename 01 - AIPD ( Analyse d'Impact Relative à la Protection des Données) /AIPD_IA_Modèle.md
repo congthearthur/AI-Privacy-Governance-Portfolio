@@ -7,15 +7,31 @@ Cadre juridique :
 ENGLISH VERSION: 
 
 # DATA PROTECTION IMPACT ASSESSMENT (DPIA) + PDPL DOSSIER (HYBRID AI SYSTEM)
-
 **Primary Standards:** GDPR (Art. 35) + EDPB Guidelines (WP 248 rev.01)  
 **PDPL Alignment:** Vietnam Personal Data Protection Law (Law No. 91/2025/QH15) — DPIA dossier + cross-border dossier + breach workflow  
-**Compatibility:** EU AI Act (High-Risk Systems) — FRIA annex
+**Compatibility:** EU AI Act (High-Risk Systems) — FRIA annex  
+
+---
+
+## 0. EVIDENCE PACK INDEX (AUDIT-READY)
+> **Release Gate:** No Pilot/Production until every item below is attached or formally risk-accepted by Controller + DPO.
+
+| Evidence ID | Artifact | Location/Link | Owner | Status |
+|---|---|---|---|---|
+| EP-01 | Data Flow Diagram (Hybrid) | [link] | Eng Lead | [ ] |
+| EP-02 | Processing Activities Register (PDPL-R) | [link] | Compliance | [ ] |
+| EP-03 | External Recipients & Sub-processors Register | [link] | Procurement/Legal | [ ] |
+| EP-04 | Consent Records Export (sample) + Evidence Format Spec | [link] | Product/Compliance | [ ] |
+| EP-05 | DSR Register Export (sample) | [link] | Support/Compliance | [ ] |
+| EP-06 | Egress Logs Export (sample) | [link] | Eng/Sec | [ ] |
+| EP-07 | Deletion & Destruction Proof (jobs + logs) | [link] | Eng/Sec | [ ] |
+| EP-08 | Incident Register Template + Tabletop Record | [link] | Sec/DPO | [ ] |
+| EP-09 | Vendor “No Training / Retention” Proof Pack | [link] | Legal/Procurement | [ ] |
+| EP-10 | PDPL Dossier Submission Evidence (DPIA + Cross-border) | [link] | DPO | [ ] |
 
 ---
 
 ## 0. DOCUMENT CONTROL + PDPL DOSSIER METADATA (AUDIT-CRITICAL)
-
 **System Name:** [Name of the AI System]  
 **Deployment Mode:** **HYBRID** (VN primary storage + foreign AI sub-processors for inference/rerank as permitted)  
 **Controller:** [Tenant / Customer Name (e.g., Law Firm)]  
@@ -23,7 +39,7 @@ ENGLISH VERSION:
 **DPO / Compliance Owner:** [Name]  
 **CISO Owner:** [Name]  
 **Date:** YYYY-MM-DD  
-**Version:** 2.0 (WP248 + PDPL Hybrid Dossier)  
+**Version:** 2.1 (WP248 + PDPL Hybrid Dossier — Audit Hardened)  
 **Status:** [ ] Draft  [ ] Validation  [ ] Approved  
 **Lifecycle Stage:** [ ] Design (Prior to Processing) [ ] Pilot [ ] Production [ ] Periodic Review  
 **AI Act Classification:** [ ] Prohibited [ ] High Risk [ ] Limited Risk [ ] Minimal Risk  
@@ -34,7 +50,8 @@ ENGLISH VERSION:
 - **First Day of Processing (T0):** YYYY-MM-DD  
 - **PDPL DPIA Dossier Deadline (T0 + 60 days):** YYYY-MM-DD  
 - **Submission Status:** [ ] Not started  [ ] In progress  [ ] Submitted  
-- **Authority / Recipient:** [Name of competent PDPL authority]  
+- **Competent PDPL Authority / Recipient:** [Name]  
+  - **Determination Rule:** [e.g., based on principal place of business / sector / instruction from Controller]  
 - **Submission Method:** [Portal / Email / Physical / Other]  
 - **Submission Evidence:** [Link to receipt / acknowledgement / courier proof]  
 - **Submission Ref No.:** [______]
@@ -45,43 +62,42 @@ ENGLISH VERSION:
 - **Next Scheduled Review (6-month cadence when changes occur):** YYYY-MM-DD  
 - **Immediate Update Triggers (PDPL):**
   - [ ] Organizational restructure/termination/dissolution/bankruptcy  
-  - [ ] Change of personal data protection service provider (including AI vendor / reranker / hosting provider supporting personal data processing)  
+  - [ ] Change of **personal data protection service provider** (incl. AI vendor / reranker / hosting provider supporting personal data processing)  
   - [ ] Change in business line/profession/service related to processing activities  
-- **Update Log (append-only):**
-  - v2.0 | YYYY-MM-DD | Initial PDPL Hybrid Dossier | [Owner] | [Approver]
-  - v__  | ____      | Trigger: ____              | ____    | ____
+
+**Update Log (append-only):**
+| Version | Date | Trigger | Summary of Change | Owner | Approver | Evidence Link |
+|---|---|---|---|---|---|---|
+| 2.1 | YYYY-MM-DD | Initial | Initial PDPL Hybrid Dossier | [Owner] | [Approver] | [link] |
+| __ | __ | __ | __ | __ | __ | __ |
 
 ### 0.3 HYBRID CROSS-BORDER DOSSIER LINK (MANDATORY)
-- **Cross-border Transfer Dossier Annex:** Annex PDPL-X (required for HYBRID)
+- **Cross-border Transfer Dossier Annex:** **Annex PDPL-X** (required for HYBRID)  
 - **First Cross-border Transfer Date (T0x):** YYYY-MM-DD  
 - **Cross-border Dossier Deadline (T0x + 60 days):** YYYY-MM-DD  
-- **Cross-border Submission Evidence:** [Link]
+- **Cross-border Submission Evidence:** [Link]  
 
 ### 0.4 BREACH CLOCK + 72-HOUR WORKFLOW LINK (MANDATORY)
 > PDPL requires notification within **72 hours from discovery** if harms may occur; incident register required; processor notifies controller promptly.
 
-- **Incident & Breach Response Pack:** Annex PDPL-Y  
+- **Incident & Breach Response Pack:** **Annex PDPL-Y**  
 - **Incident Register Location:** [Link / system module]  
 - **Authority Notification Template:** [Link]  
-- **Processor → Controller Notification Template:** [Link]
+- **Processor → Controller Notification Template:** [Link]  
 
 ---
 
 ## 1. TRIGGER ASSESSMENT (GDPR/WP248) + PDPL SCOPE CHECK
 
 ### 1.1 GDPR TRIGGER ASSESSMENT (WP29 CRITERIA & NATIONAL LISTS)
-*Reference: WP 248 rev.01, Section III.B.a (Pages 8-11)*
+**Reference:** WP 248 rev.01, Section III.B.a (Pages 8-11)
 
 #### A. National Jurisdiction Check (Art 35(4) & 35(5))
-- [ ] **Blacklist Check:** Processing operation on National DPA “Blacklist” (Art 35(4))  
-  - If YES → DPIA mandatory.
-- [ ] **Whitelist Check:** Processing operation on National DPA “Whitelist” (Art 35(5))  
-  - If YES → DPIA not required (unless conditions unmet).
-- [ ] Sector-specific DPIA frameworks checked (e.g., health/finance/energy).
+- [ ] Blacklist Check: Processing operation on National DPA “Blacklist” (Art 35(4)) → If YES, DPIA mandatory.  
+- [ ] Whitelist Check: Processing operation on National DPA “Whitelist” (Art 35(5)) → If YES, DPIA not required (unless conditions unmet).  
+- [ ] Sector-specific DPIA frameworks checked (e.g., health/finance/energy).  
 
 #### B. GDPR “High Risk” Determination (Art 35(1))
-Applicability: does the processing meet any of the criteria below?
-
 | WP29 Criterion (Risk Indicator) | Applicability |
 |---|---|
 | 1. Evaluation or scoring | [ ] Yes |
@@ -91,19 +107,19 @@ Applicability: does the processing meet any of the criteria below?
 | 5. Large scale processing | [ ] Yes |
 | 6. Matching/combining datasets exceeding expectations | [ ] Yes |
 | 7. Vulnerable data subjects | [ ] Yes |
-| 8. Innovative use/new tech (AI/LLMs) | [x] **Yes (AI System)** |
+| 8. Innovative use/new tech (AI/LLMs) | [x] Yes (AI System) |
 | 9. Preventing rights/service access | [ ] Yes |
 
 #### C. Joint Controllership (Art 26)
 - [ ] Sole Controller  
-- [ ] Joint Controller (roles defined in attached arrangement)
-- [ ] Safeguard: DPIA sharing does not compromise trade secrets/IP (e.g., weights).
+- [ ] Joint Controller (roles defined in attached arrangement)  
+- [ ] Safeguard: DPIA sharing does not compromise trade secrets/IP (e.g., weights).  
 
 ### 1.2 PDPL SCOPE & APPLICABILITY (HYBRID)
-- [ ] System processes **personal data** as defined under PDPL.  
-- [ ] Processing includes **AI / cloud / big data** components → PDPL requires security/authz and AI risk classification measures.  
-- [x] HYBRID architecture uses non-VN sub-processors for inference/rerank → **Cross-border Transfer Dossier required** (Annex PDPL-X).  
-- [ ] PDPL “processing without consent” is used only under a documented exception path with proof + monitoring (see §3.2).
+- [ ] System processes personal data as defined under PDPL.  
+- [ ] Processing includes AI / cloud / big data components → PDPL requires security/authz and AI risk classification measures.  
+- [x] HYBRID uses non-VN sub-processors for inference/rerank → Cross-border Transfer Dossier required (Annex PDPL-X).  
+- [ ] PDPL “processing without consent” is used only under documented exception path with proof + monitoring (see §3.2).  
 
 ---
 
@@ -113,39 +129,40 @@ Applicability: does the processing meet any of the criteria below?
 - **Nature & Scope:** [Describe what the AI does, scale, number of users, tenant model].  
 - **Context:** [Internal tool / client-facing chatbot / legal assistant].  
 - **Purposes:** [Legal analysis, contract drafting, compliance Q&A, etc.].  
-- **Decision Role:** [ ] Advisory only  [ ] Decision support  [ ] Automated decision-making
+- **Decision Role:** [ ] Advisory only  [ ] Decision support  [ ] Automated decision-making  
 
 ### 2.2 Data Flow Diagram (MANDATORY AUDIT ARTIFACT)
 Attach a one-page diagram showing:  
 **Ingress → VN Storage → Retrieval/RAG → Risk Gate → Redaction → Cross-border Egress → Response → Logging → Retention/Deletion**  
-- Diagram link: [____]
+- **Diagram link:** [____]  
 
 ### 2.3 Asset Inventory (Hardware, Software, People)
 **Software Assets**
 - Model(s): [LLM name/version], reranker(s): [vendor], embeddings: [model]  
 - Orchestration: [LangGraph / toolchain]  
 - Vector store: [pgvector / Qdrant]  
-- Policy engine: [risk gate/redaction module]
+- Policy engine: [risk gate/redaction module]  
 
 **Hardware & Network**
 - Primary hosting in VN: [VN region / on-prem]  
 - External calls: [LLM endpoint region], [reranker endpoint region]  
-- Transmission: TLS 1.3, mTLS optional, API gateway enforced.
+- Transmission: TLS 1.3, mTLS optional, API gateway enforced.  
 
 **Human Assets**
 - Roles: [Admin, Support, DPO, Security, Tenant Admin]  
-- Privileged access requires MFA + approvals: [Yes/No]
+- Privileged access requires MFA + approvals: [Yes/No]  
 
 **Paper Assets**
-- [ ] None (fully digital)  [ ] Scanned documents (describe)
+- [x] None (fully digital)  
+- [ ] Scanned documents (describe): ______________________  
 
 ### 2.4 Data Categories + Classification (MANDATORY FOR PDPL RISK GATE)
 - **Basic personal data:** [e.g., name, email, phone, ID no.]  
 - **Sensitive personal data:** [e.g., biometrics, location, health, political, financial]  
 - **Special categories (GDPR Art 9):** [Yes/No]  
-- **Criminal offence/conviction data (GDPR Art 10):** [Yes/No]
+- **Criminal offence/conviction data (GDPR Art 10):** [Yes/No]  
 
-**Classification method:**  
+**Classification method**
 - Rule-based detectors + ML classifier + manual override (admin-only).  
 - Output tags: `BASIC | SENSITIVE | SPECIAL | CRIMINAL | UNKNOWN`
 
@@ -154,48 +171,65 @@ Attach a one-page diagram showing:
 ## 3. LAWFUL BASIS, NECESSITY, PROPORTIONALITY + PDPL CONSENT MODEL
 
 ### 3.1 GDPR Lawfulness (Art 6 / Art 9 / Art 10)
-**Phase 1 (Training, if applicable):** [ ] Consent [ ] Legitimate Interest [ ] Contract [ ] N/A  
-**Phase 2 (Inference/Usage):** [ ] Consent [ ] Contract [ ] Public Task [ ] Legitimate Interest
+- **Phase 1 (Training, if applicable):** [ ] Consent [ ] Legitimate Interest [ ] Contract [ ] N/A  
+- **Phase 2 (Inference/Usage):** [ ] Consent [ ] Contract [ ] Public Task [ ] Legitimate Interest  
 
-If Legitimate Interest:  
-- **Specific interest pursued:** ______________________________  
-- **Balancing test summary:** [link]  
-- **Opt-out / objection mechanism:** [link]
+If Legitimate Interest:
+- Specific interest pursued: ______________________________  
+- Balancing test summary: [link]  
+- Opt-out / objection mechanism: [link]  
 
 Sensitive/special data basis (Art 9(2)): ______________________________  
-Criminal data authorising law + safeguards (Art 10 + national law): ______________________________
+Criminal data authorising law + safeguards (Art 10 + national law): ______________________________  
 
 ### 3.2 PDPL CONSENT & “NO-CONSENT EXCEPTION” (AUDIT-CRITICAL)
-**Default rule:** processing requires explicit and verifiable consent per purpose unless a documented PDPL exception applies.
+**Default rule:** processing requires **explicit and verifiable consent** per purpose unless a documented PDPL exception applies.
 
 #### A. Consent Capture (Per Purpose)
 - [ ] Clear purpose list shown to data subject.  
 - [ ] Active opt-in (no silence, no pre-ticked boxes).  
-- [ ] Consent record stored with: subject_id, purposes, timestamp, policy version, method, evidence.
+- [ ] Consent record stored with: `subject_id`, `purposes`, `timestamp`, `policy_version`, `method`, `evidence_pointer`.
 
-**Consent Records System**
-- Table / register: `consent_records`  
-- Immutability: append-only log / WORM storage / hashing [describe]  
-- Withdrawal: immediate effect for future processing (§3.3 / §6.4).
+#### B. Consent Evidence Format (MANDATORY, AUDIT-PROOF)
+**Consent evidence must be reproducible and exportable.** Minimum fields:
 
-#### B. Processing Without Consent (EXCEPTION PATH ONLY)
+| Field | Description |
+|---|---|
+| consent_event_id | Unique immutable ID |
+| subject_id | Data subject reference |
+| tenant_id | Controller/tenant reference |
+| purposes | Array of purposes consented |
+| policy_version | Privacy notice / consent text version |
+| captured_at | Timestamp (server-side) |
+| capture_method | UI checkbox / signed / API |
+| ip_device | IP + device/browser hash (optional if policy) |
+| evidence_pointer | Link/hash to UI snapshot or event log |
+| withdrawn_at | Timestamp if withdrawn |
+
+**Release Gate:** No production if consent records cannot be exported in this schema.
+
+#### C. Withdrawal
+- [ ] Withdrawal triggers immediate effect for future processing (§5.2 + §6).  
+- [ ] Withdrawal event is logged and linked to consent_event_id.
+
+#### D. Processing Without Consent (EXCEPTION PATH ONLY)
 If used:
 - [ ] Legal basis category selected from PDPL exception list (document exact basis).  
-- [ ] Justification required (free text) + approver role required.  
+- [ ] Justification required (free text) + restricted approver role required.  
 - [ ] Monitoring mechanism in place (periodic review + audit trail + complaint channel).  
-- [ ] Technical enforcement: feature flag and strict scope limits.
+- [ ] Technical enforcement: feature flag + strict scope limits.
 
-**RELEASE GATE:** No-consent mode cannot be enabled in production without DPO + Controller approval and recorded justification.
+**Release Gate:** No-consent mode cannot be enabled in production without DPO + Controller approval and recorded justification.
 
 ### 3.3 Necessity & Proportionality (Why AI?)
-- Could the objective be achieved without AI?  
-  - [ ] No → Justify: ______________________________  
-  - [ ] Yes → Justify why AI still proportionate: ______________________________
+Could the objective be achieved without AI?
+- [ ] No → Justify: ______________________________  
+- [ ] Yes → Justify why AI still proportionate: ______________________________  
 
 **Data minimization**
 - [ ] Only necessary inputs processed (prompt constraints + UI guidance).  
-- [ ] Conversation history capped to [X] turns / [Y] tokens.  
-- [ ] Retrieval context capped to [N] chunks, least-privilege snippets only.
+- [ ] Conversation history cap: **[X] turns** / **[Y] tokens**.  
+- [ ] Retrieval context cap: **[N] chunks**; least-privilege snippets only.  
 
 ---
 
@@ -207,29 +241,40 @@ If used:
 - [ ] Processor (Art 28, DPA attached)
 
 ### 4.2 External Recipients Register (RELEASE GATE)
-No deployment/validation/approval until every external recipient is completed:
+No pilot/production until every external recipient is completed and approved:
 
-| Recipient | Service | Role (C/JC/P) | GDPR instrument | PDPL role (Controller/Processor/Sub-processor) | Cross-border? (Y/N) | Region(s) | Contract & security proof | Approved |
-|---|---|---|---|---|---|---|---|---|
-| [LLM vendor] | Inference | P | Art 28 | Sub-processor | Y | [US/EU/SG] | [DPA + no-train + retention] | [ ] |
-| [Reranker] | Rerank | P | Art 28 | Sub-processor | Y | [__] | [__] | [ ] |
-| [Cloud VN] | Hosting | P | Art 28 | Sub-processor | N | VN | [__] | [ ] |
+| Recipient | Service | Role (C/JC/P) | GDPR instrument | PDPL role | Cross-border? | Region(s) | Vendor retention (0/30/90) | Training use allowed? (Y/N) | Proof pack link | Approved |
+|---|---|---:|---|---|---:|---|---:|---:|---|---|
+| [LLM vendor] | Inference | P | Art 28 | Sub-processor | Y | [US/EU/SG] | [__] | [N] | [EP-09 link] | [ ] |
+| [Reranker] | Rerank | P | Art 28 | Sub-processor | Y | [__] | [__] | [N] | [EP-09 link] | [ ] |
+| [Cloud VN] | Hosting | P | Art 28 | Sub-processor | N | VN | [__] | N/A | [EP-09 link] | [ ] |
 
 ### 4.3 Retention Policy (SYSTEM-WIDE)
-- **User documents:** [TTL e.g., 24h]  
-- **Embeddings / vectors:** [TTL / purge conditions]  
-- **Prompts:** [retention days, redaction]  
-- **Outputs:** [retention days]  
-- **Logs/audit:** [retention days; tamper resistance]  
-- **Backups:** [retention + deletion propagation policy]
+- User documents: [TTL e.g., 24h]  
+- Embeddings/vectors: [TTL / purge conditions]  
+- Prompts: [retention days, redaction]  
+- Outputs: [retention days]  
+- Logs/audit: [retention days; tamper resistance]  
+- Backups: [retention + deletion propagation policy]
 
-**Deletion/Destruction assurance**
-- [ ] Hard delete implemented for destruction scenarios.  
-- [ ] Derived artifacts deleted (vectors, caches, citations store).  
-- [ ] Non-restoration measures: cryptographic erasure / secure wipe [describe].
+### 4.4 Deletion/Destruction Completeness Checklist (MANDATORY)
+> Auditors will test completeness: deletion must include **raw + derived** data.
 
-### 4.4 HYBRID DATA EGRESS REGISTER (MANDATORY)
-Every external AI call must create an immutable egress log entry:
+When deletion/destruction is requested, confirm:
+
+- [ ] Raw documents deleted  
+- [ ] Embeddings/vectors deleted  
+- [ ] Retrieval caches cleared (RAG cache / context cache)  
+- [ ] Citations store entries removed (where applicable)  
+- [ ] Conversation messages removed (subject to retention policy)  
+- [ ] Search indexes updated to remove artifacts  
+- [ ] Backup deletion propagation policy executed (document timeframe)  
+- [ ] Non-restoration assured (cryptographic erasure / secure wipe)  
+
+**Deletion Evidence:** link to job logs + sample execution trace: [EP-07 link]
+
+### 4.5 HYBRID DATA EGRESS REGISTER (MANDATORY)
+Every external AI call must create an immutable egress log entry.
 
 **Egress log fields**
 - request_id, tenant_id, timestamp  
@@ -237,11 +282,17 @@ Every external AI call must create an immutable egress log entry:
 - data categories sent (prompt / snippets / metadata)  
 - redaction mode applied (`NONE | BASIC_REDACT | STRONG_REDACT`)  
 - risk_level (`LOW | MED | HIGH`)  
-- retention expectation at vendor (0/30/90)  
+- vendor retention expectation (0/30/90)  
 - “no training” attestation flag  
-- outcome (allowed/blocked), reason
+- outcome (allowed/blocked), reason  
 
-**RELEASE GATE:** No external call allowed without egress logging enabled.
+**Measurable minimization caps (MANDATORY)**
+- **Max external payload tokens:** ≤ [T] tokens  
+- **Max external retrieved chunks:** ≤ [N] chunks  
+- **Max external fields allowed:** [list]  
+- **Redaction coverage target:** ≥ [__]% of detected identifiers removed  
+
+**Release Gate:** No external call allowed without egress logging enabled and caps enforced.
 
 ---
 
@@ -252,7 +303,7 @@ Every external AI call must create an immutable egress log entry:
 |---|---|
 | Information (Art 13/14) | [ ] Transparency notice + AI label |
 | Access & portability (Art 15/20) | [ ] Export user data (JSON/CSV) |
-| Rectification & erasure (Art 16/17) | [ ] Remove source docs from retrieval + delete derived artifacts |
+| Rectification & erasure (Art 16/17) | [ ] Remove source docs + delete derived artifacts |
 | Objection & restriction (Art 18/21) | [ ] Opt-out for training + stop generation |
 | Automated decision review (Art 22) | [ ] Human-in-the-loop for significant effects |
 
@@ -263,36 +314,36 @@ Every external AI call must create an immutable egress log entry:
 - SLA target: [____]
 
 **Execution Controls**
-- Withdrawal/restriction triggers: processing freeze + block embedding/retrieval/egress.  
-- Correction workflow: update data at source + propagate to derived stores.  
-- Deletion workflow: delete raw + derived artifacts + ensure non-restoration where required.
+- Withdrawal/restriction: processing freeze + block embedding/retrieval/egress.  
+- Correction: update data at source + propagate to derived stores.  
+- Deletion/destruction: execute §4.4 checklist and record evidence.
 
 **Evidence**
-- DSR register: `dsr_requests` with timestamps, actions, closure proof.
+- DSR register: `dsr_requests` with timestamps, actions, closure proof (EP-05)
 
 ---
 
 ## 6. PDPL AI RISK CLASSIFICATION GATE (MANDATORY FOR HYBRID)
 
-### 6.1 Risk Tiering Model (ENFORCEMENT, NOT JUST ANALYSIS)
-- **RISK-LOW**: no identifiers; general legal analysis → **HYBRID allowed**  
-- **RISK-MED**: identifiers present → **HYBRID allowed only with redaction**; otherwise VN-only  
-- **RISK-HIGH**: sensitive categories / high harm potential → **VN-only** or **BLOCK** unless strict basis + extra safeguards
+### 6.1 Risk Tiering Model (ENFORCEMENT)
+- **RISK-LOW:** no identifiers; general legal analysis → HYBRID allowed  
+- **RISK-MED:** identifiers present → HYBRID only with redaction; else VN-only  
+- **RISK-HIGH:** sensitive categories / high harm potential → VN-only or BLOCK unless strict basis + extra safeguards
 
 ### 6.2 Routing Outcomes (Deterministic)
-- `VN_ONLY` — process using VN-hosted models/services only  
-- `HYBRID_REDACTED` — external calls permitted only after redaction  
-- `BLOCK` — refuse processing; prompt user for safer input or alternative
+- `VN_ONLY` — VN-hosted models/services only  
+- `HYBRID_REDACTED` — external calls permitted after redaction + caps  
+- `BLOCK` — refuse processing; request safer input / alternate workflow
 
 ### 6.3 Override Policy (RESTRICTED)
-- Overrides require: DPO approval + controller approval + justification + time-bound scope + monitoring  
-- Every override logged (who/when/why).
+- Requires DPO + Controller approval + justification + time-bound scope + monitoring  
+- Every override logged (who/when/why) and reviewed monthly.
 
 ### 6.4 Guardrails for Hybrid External Calls
 - Redaction before egress (PII stripping + sensitive removal).  
 - Prompt injection defenses (tool isolation, allowlists, output filters).  
 - Citation-only / grounded mode for legal outputs where required.  
-- No vendor training use (contract + config).
+- No vendor training use (contract + config + proof).
 
 ---
 
@@ -313,19 +364,19 @@ Every external AI call must create an immutable egress log entry:
 
 ## 8. MEASURES TO TREAT RISKS (SECURITY + FUNDAMENTAL RIGHTS) + PDPL EVIDENCE
 
-### 8.1 Security & Integrity Measures (GDPR Art 32 + PDPL security expectations)
+### 8.1 Security & Integrity Measures
 | Risks | Measures | Residual Risk | Approved |
 |---|---|---|---|
-| R1, R5, R6 | Redaction before egress; encryption TLS; AES at rest; key mgmt | Low/Med | [ ] |
-| R2 | Guardrails; input validation; sandboxed tools; red-team schedule | Medium | [ ] |
+| R1, R5, R6 | Redaction; TLS; AES at rest; key mgmt; egress caps | Low/Med | [ ] |
+| R2 | Guardrails; input validation; sandbox tools; red-team schedule | Medium | [ ] |
 | R4 | Rate limiting; autoscaling; WAF; monitoring | Low | [ ] |
-| R7 | Tenant isolation (RLS/tenant_id everywhere); authz checks; tests | Low | [ ] |
+| R7 | Tenant isolation (RLS/tenant_id); authz checks; tests | Low | [ ] |
 
-### 8.2 Fundamental Rights Safeguards (WP248)
+### 8.2 Fundamental Rights Safeguards
 | Risks | Measures | Residual Risk | Approved |
 |---|---|---|---|
-| R3 | Grounded RAG with citations; verified sources; refusal on uncertainty | Medium | [ ] |
-| R3 | Human oversight for significant effect decisions | Low | [ ] |
+| R3 | Grounded RAG with citations; refusal on uncertainty | Medium | [ ] |
+| R3 | Human oversight for significant effects | Low | [ ] |
 | R3 | Contestability, explanation, redress workflow | Low | [ ] |
 
 **Criticality check**
@@ -336,41 +387,50 @@ Every external AI call must create an immutable egress log entry:
 
 ## 9. MONITORING, REVIEW, AUDIT + PDPL UPDATE CADENCE (HYBRID)
 
-### 9.1 Re-assessment Triggers (WP248 + PDPL)
+### 9.1 Re-assessment Triggers
 - Model drift below threshold  
-- New capabilities: plugins, browsing, new tools, new data categories  
+- New capabilities (plugins, browsing, new tools, new data categories)  
 - Purpose expansion / new intent  
-- Regulatory change: PDPL guidance / AI Act updates  
-- **PDPL immediate update triggers (mandatory)**:
+- Regulatory change (PDPL guidance / AI Act updates)  
+- PDPL immediate update triggers:
   - Organizational restructure/termination/dissolution/bankruptcy  
   - Change of personal data protection service provider  
-  - Change in business line/service related to processing  
+  - Change in business line/service related to processing
 
 ### 9.2 Periodicity
 - GDPR/WP248 review: every [12] months  
-- PDPL dossier review: every 6 months **when changes occur**, plus immediate triggers above.
+- PDPL dossier review: every 6 months when changes occur + immediate triggers
 
 ### 9.3 Compliance Audit Checklist (Release Gate)
-- [ ] Data flow verification matches §2.2 diagram  
-- [ ] Retention + deletion jobs proven via logs  
-- [ ] Egress register active for all external calls  
-- [ ] Risk gate enforced + override logs reviewed  
-- [ ] DSR execution tested (withdraw/restrict/delete)  
-- [ ] Incident workflow tested (tabletop)
+- [ ] Data flow verification matches §2.2 diagram (EP-01)  
+- [ ] Retention + deletion jobs proven via logs (EP-07)  
+- [ ] Egress register active for all external calls (EP-06)  
+- [ ] Risk gate enforced + override logs reviewed (EP-06)  
+- [ ] DSR execution tested (withdraw/restrict/delete) (EP-05)  
+- [ ] Incident workflow tested (tabletop) (EP-08)  
+- [ ] Vendor proof pack complete (no-train/retention) (EP-09)
 
 ---
 
 ## 10. SIGN-OFF, ACCOUNTABILITY + PUBLICATION
-
 **DPO Advice:** [ ] Compliant  [ ] Not compliant (mitigations required)  
 **Controller Decision:** [ ] Proceed  [ ] Stop  [ ] Proceed with documented risk acceptance  
 **Processor Confirmation:** [ ] Implemented controls per dossier  [ ] Pending  
 **CISO Validation:** [ ] Validated  [ ] Pending  
-**Date:** ____________________
+**Date:** ____________________  
 
 **Transparency Decision**
 - [ ] Full DPIA confidential  
 - [ ] Publish public summary: [link]
+
+---
+
+# ANNEX PDPL-R — PROCESSING ACTIVITIES REGISTER (RoPA-STYLE) (MANDATORY FOR AUDIT)
+> Maintain one register per tenant/controller.
+
+| Activity ID | Purpose | Data subjects | Data categories | Sources | Processing ops | Storage location(s) | Recipients/subprocessors | Cross-border? | Retention | Security controls | Legal basis (GDPR/PDPL) | Notes |
+|---|---|---|---|---|---|---|---|---:|---|---|---|---|
+| PA-01 | [____] | [____] | [BASIC/SENSITIVE] | [user upload] | [retrieve, summarize] | [VN DB] | [LLM vendor] | Y | [TTL] | [TLS/AES/RBAC] | [____] | [____] |
 
 ---
 
@@ -380,24 +440,30 @@ Every external AI call must create an immutable egress log entry:
 This annex documents cross-border transfers arising from HYBRID processing (foreign LLM/reranker endpoints, foreign logging/monitoring, foreign support access).
 
 ## X.2 First Transfer Date + 60-Day Deadline
-- **First cross-border transfer date (T0x):** YYYY-MM-DD  
-- **Dossier deadline (T0x + 60 days):** YYYY-MM-DD  
-- **Submission evidence:** [link]  
+- First cross-border transfer date (T0x): YYYY-MM-DD  
+- Dossier deadline (T0x + 60 days): YYYY-MM-DD  
+- Submission evidence: [EP-10 link]
 
 ## X.3 Transfers Register (MANDATORY)
-| Vendor/Subprocessor | Service | Region | Data categories sent | Purpose | Safeguards | Vendor retention | Egress logs | Approved |
-|---|---|---|---|---|---|---|---|---|
-| [LLM] | inference | [__] | prompt+snippets | legal answer | redaction+TLS | [__] | yes | [ ] |
+| Vendor/Subprocessor | Service | Region | Data categories sent | Purpose | Safeguards | Vendor retention (0/30/90) | Training use allowed? | Egress logs | Approved |
+|---|---|---|---|---|---|---:|---:|---|---|
+| [LLM] | inference | [__] | prompt+snippets | legal answer | redaction+TLS+caps | [__] | N | yes | [ ] |
 
-## X.4 Safeguards (ENFORCEABLE)
+## X.4 Safeguards (ENFORCEABLE + MEASURABLE)
 - Minimization: only necessary snippets; cap chunks/tokens  
+- **Max external payload tokens:** ≤ [T]  
+- **Max external retrieved chunks:** ≤ [N]  
 - Strong redaction for identifiers and sensitive categories  
 - Encryption in transit  
 - Access controls + audit trails  
-- “No training use” by vendor (contract + config)
+- “No training use” by vendor (contract + config + proof)
 
-## X.5 Exceptions Check (PDPL)
-- [ ] Exception applies (describe)  
+## X.5 PDPL Exceptions Handling (TIGHTENED)
+- [ ] Exception applies  
+  - **Exception ID/Description:** ____________________  
+  - **Legal reasoning:** ____________________  
+  - **Evidence:** ____________________  
+  - **Approver:** ____________________  
 - [ ] No exception applies → full dossier obligations apply
 
 ## X.6 Updates (PDPL cadence)
@@ -410,37 +476,52 @@ Updates required per §0.2 triggers and §9.1.
 ## Y.1 Incident Timestamps
 - Discovery time (T0i): ______  
 - 72-hour deadline (T0i + 72h): ______  
+- Time-to-triage decision (max): **≤ 4 hours**  
 - Initial containment time: ______  
 
-## Y.2 Incident Record (MINIMUM FIELDS)
+## Y.2 “Harm May Occur” Triage Rule (MANDATORY)
+Notification is triggered when the violation **may cause harm**. Use the rubric below:
+
+**Likely harm indicators (any = escalate):**
+- Sensitive data exposure  
+- Identity/credential exposure  
+- Large-scale exposure (volume/tenants)  
+- Evidence of unauthorized access/exfiltration  
+- Risk of financial, reputational, or physical harm  
+- Regulatory/legal impact (court, law firm confidential matters)
+
+**Decision owner:** CISO + DPO + Controller representative  
+**Decision evidence:** record rationale in incident register.
+
+## Y.3 Incident Record (MINIMUM FIELDS)
 - Incident ID, tenant(s) affected, systems affected  
 - Data categories impacted, estimated scale  
-- Harm likelihood assessment  
+- Harm likelihood assessment + triage rationale  
 - Actions taken: containment, remediation, prevention  
 - Authority notification: time/method/evidence  
 - Processor → Controller notification: time/evidence  
 - Postmortem link
 
-## Y.3 Templates
+## Y.4 Templates
 - Authority notice template: [link]  
 - Controller notice template: [link]  
 - Internal postmortem template: [link]
 
-## Y.4 Tabletop Exercise
+## Y.5 Tabletop Exercise
 - Last exercise date: ______  
 - Findings: ______  
 - Actions closed: [ ] Yes [ ] No
 
 ---
 
-# ANNEX — EU AI ACT FUNDAMENTAL RIGHTS IMPACT ASSESSMENT (FRIA) (UNCHANGED CORE, ALIGNED)
+# ANNEX — EU AI ACT FUNDAMENTAL RIGHTS IMPACT ASSESSMENT (FRIA) (ALIGNED)
 
 ## FRIA-1 Deployment context
-- Use setting: [internal/external/public-facing/B2B/public authority]
-- Primary function: [assist/triage/scoring/decision support]
-- Significant effects: [ ] No  [ ] Yes → specify: ______
-- Affected persons: [customers/employees/patients/students/public]
-- Interfaces: [chatbot/API/portal/mobile/back-office]
+- Use setting: [internal/external/public-facing/B2B/public authority]  
+- Primary function: [assist/triage/scoring/decision support]  
+- Significant effects: [ ] No  [ ] Yes → specify: ______  
+- Affected persons: [customers/employees/patients/students/public]  
+- Interfaces: [chatbot/API/portal/mobile/back-office]  
 - Geo scope: [EU/non-EU] | Languages: [__]
 
 ## FRIA-2 Fundamental rights screened
@@ -454,9 +535,9 @@ Updates required per §0.2 triggers and §9.1.
 ## FRIA-3 Stakeholders & affected groups
 - Users: ______  
 - Affected persons: ______  
-- Vulnerable groups: [ ] No [ ] Yes → ______  
+- Vulnerable groups: [ ] No  [ ] Yes → ______  
 - Redress channel: ______  
-- Consultation: [ ] Yes [ ] No → justification: ______
+- Consultation: [ ] Yes  [ ] No → justification: ______
 
 ## FRIA-4 Safeguards & governance
 - Human oversight for significant effects  
