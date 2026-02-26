@@ -1,6 +1,6 @@
 # AI-Privacy-Governance-Portfolio
 
-En recherche de Master, voici un portfolio non exhaustif de projets et de mon appétence pour le droit du numérique, de la protection des données personnelles et de l'IA.
+Voici un portfolio non exhaustif de projets et de mon appétence pour le droit du numérique, de la protection des données personnelles et de l'IA.
 
 Ce dépôt présente un travail personnel portant sur :
 - l’Analyse d’Impact relative à la Protection des Données (AIPD – art. 35 RGPD),
